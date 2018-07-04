@@ -1,8 +1,8 @@
-# kajalpandya/crud
+# kajalpandya/generate_laravel_crud
 Just type your entity name and generate model, views, controller
 
 # Add package
-add <strong>"kajalpandya/crud": "dev-master"</strong> in your <strong>composer.json</strong> file
+add <strong>"kajalpandya/generate_laravel_crud": "dev-master"</strong> in your <strong>composer.json</strong> file
 then run 
 <strong>$ composer update</strong>
 
