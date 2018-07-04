@@ -1,0 +1,23 @@
+{
+    "name": "kajalpandya/generate_laravel_crud",
+    "description": "Run command in terminal and make ready made crud for your entity",
+    "keywords": ["laravel", "repository", "crud", "adminpanel", "eloquent", "model", "cache", "laravel crud", "laravel", "generate crud"],
+    "type": "crud",
+    "authors": [
+        {
+            "name": "Kajal",
+            "email": "kjlkajal98@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "illuminate/http": "~5.0",
+        "illuminate/config": "~5.0",
+        "illuminate/support": "~5.0",
+        "illuminate/database": "~5.0",
+        "illuminate/pagination": "~5.0",
+        "illuminate/console": "~5.0",
+        "illuminate/filesystem": "~5.0"
+    }
+}
