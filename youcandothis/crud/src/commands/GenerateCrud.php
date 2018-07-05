@@ -46,7 +46,6 @@ class GenerateCrud extends Command
 
         $k = [];
         $k = explode(",", $fields);
-        //print('--- all fields are --- ' . $k[0]);
         $fillable = '$fillable';
         $fillables = "    protected " . $fillable . " = [];";
         if($this->option('fields'))
