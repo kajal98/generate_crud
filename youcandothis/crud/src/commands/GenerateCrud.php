@@ -7,35 +7,15 @@ use Symfony\Component\Console\Input\InputArgument;
 
 class GenerateCrud extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
     protected $name = 'generate:crud';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
     protected $description = 'Generate crud just by add your entity name.';
 
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         parent::__construct();
     }
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
     public function fire()
     {
         $option = $this->option('example');
@@ -44,11 +24,6 @@ class GenerateCrud extends Command
         $this->info('This a command test:'.$option);
 
     }
-    /**
-     * Get the console command arguments.
-     *
-     * @return array
-     */
     protected function getArguments()
     {
         return [
@@ -56,11 +31,6 @@ class GenerateCrud extends Command
         ];
     }
 
-    /**
-     * Get the console command options.
-     *
-     * @return array
-     */
     protected function getOptions()
     {
         return [
