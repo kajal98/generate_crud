@@ -22,8 +22,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Youcandothis\\Crud\\": "packages/youcandothis/crud/src/providers",
-            "Youcandothis\\Crud\\Src\\Commands\\": "packages/youcandothis/crud/src/commands"
+            "Youcandothis\\Crud\\": "youcandothis/crud/src/providers",
+            "Youcandothis\\Crud\\Src\\Commands\\": "youcandothis/crud/src/commands"
         }
     }
 }
