@@ -137,19 +137,17 @@ class GenerateCrud extends Command
         $layout_content = "<!DOCTYPE html>\n<html lang='en'>\n<head>\n    <meta charset='utf-8'>\n    <meta http-equiv='X-UA-Compatible' content='IE=edge'>\n    <meta name='viewport' content='width=device-width, initial-scale=1'>\n</head>\n<body>\n    <div id='container'>\n        @yield('content')\n    </div>\n</body>\n</html>\n";
         $view_content = "@extends('layouts." . $modelName . "')\n@section('content')\n<div class='app'>\n\n</div>\n@endsection";
 
-        if ($this->confirm('Would you like to create a layout? [y|N]')) {
+            if(!file_exists('resources/views/layouts'))
+                {
+                    mkdir('resources/views/layouts');
+                }
             file_put_contents($layout_path, $layout_content);
             $this->info('Layout Created Successfully.');
-        }
 
         if ($this->confirm('Would you like to create a views? [y|N]')) {
-            if(!file_exists('resources/views/' . $modelName . 's' ))
+            if(!file_exists('resources/views/' . $modelName . 's'))
                 {
-                    mkdir('resources/views/' . $modelName . 's' );
-                }
-            else
-                {
-                    $this->info('Directory Already Exist.');
+                    mkdir('resources/views/' . $modelName . 's');
                 }
             file_put_contents($index_path, $view_content);
             file_put_contents($create_path, $view_content);
