@@ -19,5 +19,11 @@
         "illuminate/pagination": "~5.0",
         "illuminate/console": "~5.0",
         "illuminate/filesystem": "~5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Youcandothis\\Crud\\": "packages/youcandothis/crud/src/providers",
+            "Youcandothis\\Crud\\Src\\Commands\\": "packages/youcandothis/crud/src/commands"
+        }
     }
 }
