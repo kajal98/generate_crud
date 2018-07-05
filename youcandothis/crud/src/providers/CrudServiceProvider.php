@@ -28,6 +28,6 @@ class CrudServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //$this->commands('Crud\Src\Commands\GenerateCrud');
+        $this->commands('Src\Commands\GenerateCrud');
     }
 }

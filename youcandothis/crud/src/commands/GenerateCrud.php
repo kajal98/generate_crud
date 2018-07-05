@@ -143,7 +143,14 @@ class GenerateCrud extends Command
         }
 
         if ($this->confirm('Would you like to create a views? [y|N]')) {
-            if(!file_exists(mkdir('resources/views/' . $modelName . 's' )));
+            if(!file_exists('resources/views/' . $modelName . 's' ))
+                {
+                    mkdir('resources/views/' . $modelName . 's' );
+                }
+            else
+                {
+                    $this->info('Directory Already Exist.');
+                }
             file_put_contents($index_path, $view_content);
             file_put_contents($create_path, $view_content);
             file_put_contents($edit_path, $view_content);
