@@ -51,3 +51,5 @@ Have fun..!!!!!
 
 ## Screenshots
 <img src="https://user-images.githubusercontent.com/38377336/41842629-f98082c2-7888-11e8-8972-37c59baf1c3f.jpg" alt="Template 1">
+
+<img src="/ss/Show.png" alt="Template 1">
