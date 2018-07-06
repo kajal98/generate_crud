@@ -20,7 +20,7 @@ if all working good then put this line to your composer.json file
 
 <strong>"kajalpandya/generate_laravel_crud": "dev-master",</strong>
 
-## update compoder 
+## update composer 
 <strong>$ composer update</strong>
 
 ## Register provider
