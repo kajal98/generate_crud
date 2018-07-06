@@ -27,6 +27,9 @@
         "psr-4": {
             "Youcandothis\\Crud\\": "youcandothis/crud/src/providers",
             "Youcandothis\\Crud\\Src\\Commands\\": "youcandothis/crud/src/commands"
-        }
+        },
+        "files": [
+            "app/helpers.php"
+        ]
     }
 }
