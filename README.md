@@ -48,3 +48,6 @@ then put this line to your config/app.php file in providers array
 then run localhost:8000
 
 Have fun..!!!!!
+
+## Screenshots
+<img src="https://user-images.githubusercontent.com/38377336/41842629-f98082c2-7888-11e8-8972-37c59baf1c3f.jpg" alt="Template 1">
