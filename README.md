@@ -50,11 +50,12 @@ then run localhost:8000
 Have fun..!!!!!
 
 ## Screenshots
-<img src="/ss/Register.png" alt="Register">
-<img src="/ss/Login.png" alt="Login">
-<img src="/ss/Dashboard.png" alt="Dashboard">
-<img src="/ss/Change.png" alt="Change">
-<img src="/ss/Listing.png" alt="Listing">
-<img src="/ss/Add.png" alt="Add">
-<img src="/ss/Edit.png" alt="Edit">
-<img src="/ss/Show.png" alt="Show">
+
+![register](https://user-images.githubusercontent.com/18494848/42377118-85616acc-813f-11e8-813c-80ccb0365a0e.png)
+![login](https://user-images.githubusercontent.com/18494848/42377119-85ac06d6-813f-11e8-832b-cd11a469157f.png)
+![dashboard](https://user-images.githubusercontent.com/18494848/42377120-85f56f60-813f-11e8-8130-8309c8cda01a.png)
+![change](https://user-images.githubusercontent.com/18494848/42377116-84ee8124-813f-11e8-8da5-3c8231707ac3.png)
+![listing](https://user-images.githubusercontent.com/18494848/42377121-863c6df2-813f-11e8-90fa-2768f1ee861c.png)
+![add](https://user-images.githubusercontent.com/18494848/42377117-8518ed38-813f-11e8-9351-8c63b106c570.png)
+![edit](https://user-images.githubusercontent.com/18494848/42377114-84c23f1a-813f-11e8-89cb-052b7abb03a6.png)
+![show](https://user-images.githubusercontent.com/18494848/42377112-849a5856-813f-11e8-85e6-f5862e96b8c1.png)
