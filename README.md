@@ -50,6 +50,11 @@ then run localhost:8000
 Have fun..!!!!!
 
 ## Screenshots
-<img src="https://user-images.githubusercontent.com/38377336/41842629-f98082c2-7888-11e8-8972-37c59baf1c3f.jpg" alt="Template 1">
-
-<img src="/ss/Show.png" alt="Template 1">
+<img src="/ss/Register.png" alt="Register">
+<img src="/ss/Login.png" alt="Login">
+<img src="/ss/Dashboard.png" alt="Dashboard">
+<img src="/ss/Change.png" alt="Change">
+<img src="/ss/Listing.png" alt="Listing">
+<img src="/ss/Add.png" alt="Add">
+<img src="/ss/Edit.png" alt="Edit">
+<img src="/ss/Show.png" alt="Show">
