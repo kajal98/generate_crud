@@ -1,56 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Edoc</title>
+    <!-- Basic Page Info -->
+    <meta charset="utf-8">
+    <title>DeskApp Dashboard</title>
+
+    <!-- Site favicon -->
+    <!-- <link rel="shortcut icon" href="images/favicon.ico"> -->
+
+    <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="shortcut icon" href="{!! asset('images/favicon.ico') !!}">
-    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800" rel="stylesheet"> 
-{{--     <link rel="stylesheet" type="text/css" href="{!! asset('css/bootstrap.css') !!}">
-    <link rel="stylesheet" type="text/css" href="{!! asset('css/slick.css') !!}">
-    <link rel="stylesheet" type="text/css" href="{!! asset('css/font-awesome.css') !!}">
-    <link rel="stylesheet" type="text/css" href="{!! asset('css/jquery.fancybox.css') !!}">
-    <link rel="stylesheet" type="text/css" href="{!! asset('css/style.css') !!}">
-    <link rel="stylesheet" type="text/css" href="{!! asset('css/media.css') !!}"> --}}
-    <link rel="stylesheet" type="text/css" href="{!! asset('css/app.css') !!}">
-    <link rel="stylesheet" type="text/css" href="{!! asset('css/dev.css') !!}">
-    @yield('style')
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="vendors/styles/style.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-119386393-1');
+    </script>
 </head>
 <body>
-    @include('shared.header')   
-    @include('shared.banner')
-
-    @include('shared.flash')
-    <div class="faq-page text-center">
-        <div class="container">
-        <div class="title"><h2>The page you are looking for does not exist</h2></div>
-        <div class="button-border">
-            <a href="{!! route('home') !!}"><i class="fa fa-long-arrow-left"></i> Back To Home</a>
+    <div class="error-page login-wrap bg-cover height-100-p customscroll d-flex align-items-center flex-wrap justify-content-center pd-20">
+        <img src="vendors/images/error-bg.jpg" alt="" class="bg_img">
+        <div class="pd-10">
+            <div class="error-page-wrap text-center color-white">
+                <h1 class="color-white weight-500">Error: 404 Page Not Found</h1>
+                <img src="vendors/images/404.png" alt="">
+                <p>Sorry, the page you’re looking for cannot be accessed.<br>Either check the URL, <a href="{!! url('/admin') !!}">go home</a>.</p>
+            </div>
         </div>
     </div>
-    </div>
-    @include('shared.footer')
-    <script src="{!! asset('js/app.js') !!}"></script>
-{{--     <script src="{!! asset('js/jquery-3.1.1.min.js') !!}"></script>
-    <script src="{!! asset('js/jquery-migrate-3.0.0.min.js') !!}"></script>
-    <script src="{!! asset('js/bootstrap.js') !!}"></script>
-    <script src="{!! asset('js/slick.js') !!}"></script>
-    <script src="{!! asset('js/jquery.fancybox.js') !!}"></script>
-    <script src="{!! asset('js/setting.js') !!}"></script> --}} 
-    <script>
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://edoc24x7.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <script id="dsq-count-scr" src="//edoc24x7.disqus.com/count.js" async></script>
-    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a29249d5607a60a"></script>
-
-    @yield('scripts')
+    <script src="vendors/scripts/script.js"></script>
 </body>
 </html>

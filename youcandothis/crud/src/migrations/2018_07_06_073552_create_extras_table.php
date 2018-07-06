@@ -19,7 +19,7 @@ class CreateExtrasTable extends Migration
             $table->text('description')->nullable();
             $table->string('code', 255)->nullable();
             $table->string('image', 255)->nullable();
-            $table->tinyInteger('active', 0);
+            $table->tinyInteger('active')->default(0);
             $table->timestamps();
         });
     }

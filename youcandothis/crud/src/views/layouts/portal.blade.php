@@ -13,9 +13,9 @@
 		</div>
 	</div>
 	<script src="{!! asset('/js/jquery.min.js') !!}"></script>
-  <script src="/js/script.js"></script>
-  <script type="text/javascript" src="/js/plupload.full.min.js"></script>
-    <script src="{!! asset('js/pusher.js') !!}"></script>
+	<script src="{!! asset('/js/script.js') !!}"></script>
+	<script src="{!! asset('/js/plupload.full.min.js') !!}"></script>
+	<script src="{!! asset('js/pusher.js') !!}"></script>
 	@yield('scripts')
 </body>
 </html>

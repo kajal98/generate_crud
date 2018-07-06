@@ -53,11 +53,13 @@
 <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
 <script src="{!! asset('js/ckfinder.js') !!}"></script>
 <script>
-    $(document).ready(function() {
-        var editor = CKEDITOR.replace( 'text',{
-            allowedContent:true,
-        });
-        CKFinder.setupCKEditor( editor );
+    var options = {
+    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
+    allowedContent:true
+};
+$(document).ready(function() {
+    var editor = CKEDITOR.replace( 'text',options);
     });
 </script>
 @endsection

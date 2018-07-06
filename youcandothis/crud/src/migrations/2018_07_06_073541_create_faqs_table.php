@@ -17,7 +17,7 @@ class CreateFaqsTable extends Migration
             $table->increments('id');
             $table->string('question', 255)->nullable();
             $table->text('answer')->nullable();
-            $table->tinyInteger('status', 0);
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }

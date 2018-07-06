@@ -22,8 +22,8 @@ class CreateBlogsTable extends Migration
             $table->string('slug')->nullable();
             $table->text('description')->nullable();
             $table->string('image')->nullable();
-            $table->tinyInteger('is_archive', 0);
-            $table->tinyInteger('publish', 0);
+            $table->tinyInteger('is_archive')->default(0);
+            $table->tinyInteger('publish')->default(0);
             $table->text('meta_title')->nullable();
             $table->text('meta_keyword')->nullable();
             $table->text('meta_description')->nullable();

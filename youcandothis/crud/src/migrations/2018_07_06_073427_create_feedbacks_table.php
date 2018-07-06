@@ -20,9 +20,9 @@ class CreateFeedbacksTable extends Migration
             $table->string('email', 255)->nullable();
             $table->string('type', 255)->nullable();
             $table->string('location', 255)->nullable();
-            $table->tinyInteger('status', 0);
-            $table->tinyInteger('show_name', 0);
-            $table->tinyInteger('show_loaction', 0);
+            $table->tinyInteger('status')->default(0);
+            $table->tinyInteger('show_name')->default(0);
+            $table->tinyInteger('show_loaction')->default(0);
             $table->timestamps();
         });
     }

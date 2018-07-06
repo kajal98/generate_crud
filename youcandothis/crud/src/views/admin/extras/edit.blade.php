@@ -38,7 +38,11 @@
         <div class="row" style="margin-left: 3px;">
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="clearfix" id="previewDiv">
-                    <img src="{!! asset('/images/default.jpg') !!}" id='preview' height="100px" width="100px">
+                    @if($extra->image)
+                        <img src="{!! $blog->image_url('thumb') !!}" id='preview' height="100px" width="100px">
+                    @else
+                        <img src="{!! asset('/images/default.jpg') !!}" id='preview' height="100px" width="100px">
+                    @endif
                 </div>
                 <div id="filelist"></div>
                 <div id="progressbar"></div>
@@ -62,11 +66,13 @@
 <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
 <script src="{!! asset('js/ckfinder.js') !!}"></script>
 <script>
-    $(document).ready(function() {
-        var editor = CKEDITOR.replace( 'description',{
-            allowedContent:true,
-        });
-        CKFinder.setupCKEditor( editor );
+  var options = {
+    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
+    allowedContent:true
+};
+$(document).ready(function() {
+    var editor = CKEDITOR.replace( 'description',options);
         var uploader = new plupload.Uploader({
             runtimes : 'html5,flash,silverlight,html4',
             browse_button : 'pickfiles',
