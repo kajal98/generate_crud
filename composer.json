@@ -21,7 +21,12 @@
         "illuminate/filesystem": "~5.0",
         "php": ">=7.0.0",
         "anahkiasen/former": "^4.0",
-        "cviebrock/eloquent-sluggable": "^4.1"
+        "cviebrock/eloquent-sluggable": "^4.1",
+        "intervention/image": "^2.3",
+        "laravelcollective/html": "5.5.*",
+        "spatie/laravel-newsletter": "^4.2",
+        "unisharp/laravel-ckeditor": "^4.6",
+        "unisharp/laravel-filemanager": "~1.8"
     },
     "autoload": {
         "psr-4": {

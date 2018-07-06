@@ -23,9 +23,14 @@ if all working good then put this line to your composer.json file
 ## update composer 
 <strong>$ composer update</strong>
 
-## Register provider
+## Register provider and aliases
 then put this line to your config/app.php file in providers array
 <strong>Youcandothis\Crud\CrudServiceProvider::class,</strong>
+<strong>Intervention\Image\ImageServiceProvider::class,</strong>
+
+
+and this in aliases array
+<strong>'Image' => Intervention\Image\Facades\Image::class,</strong>
 
 ## Clear the cache
 <strong>$ php artisan config:cache</strong>
@@ -39,6 +44,7 @@ then put this line to your config/app.php file in providers array
 
 ## Register middleware in app\Http\Kernel.php in $routeMiddleware group
 <strong>'admin' => \App\Http\Middleware\AdminOnly::class,</strong>
+
 
 ## autoload helper file in your composer.json file under "autoload-dev" array
 "files": [
