@@ -5,6 +5,7 @@
 </head>
 <body>
 	@yield('content')
-	@include('shared.script')
+	<script src="{!! asset('/js/jquery.min.js') !!}"></script>
+  <script src="/js/script.js"></script>
 </body>
 </html>
