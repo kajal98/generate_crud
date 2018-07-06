@@ -1,66 +1,45 @@
-# kajalpandya/generate_laravel_crud
-Just type your entity name and generate model, views, controller
+# Just type your entity name and generate model, views, controller
 
-# Add package
-add <strong>"kajalpandya/generate_laravel_crud": "dev-master"</strong> in your <strong>composer.json</strong> file
-then run 
+## create new directory in your root folder
+<strong>$ composer create-project --prefer-dist laravel/laravel blog</strong>
+
+## go to your directory
+<strong>$ cd blog</strong>
+
+## move .env.example file to .env
+<strong>$ mv .env.example .env</strong>
+
+## generate your app key
+<strong>$ php artisan key:generate</strong>
+
+set your database configuration in .env file
+
+run localhost:8000 in your browser
+
+if all working good then put this line to your composer.json file
+
+<strong>"kajalpandya/generate_laravel_crud": "dev-master",</strong>
+
+## update compoder 
 <strong>$ composer update</strong>
 
-# Add provider
-then add provider to your <strong>config/app.php</strong> file
+## Register provider
+then put this line to your config/app.php file in providers array
+<strong>Youcandothis\Crud\CrudServiceProvider::class,</strong>
 
-<strong>Youcandothis\Crud\CrudServiceProvider::class</strong>
+## Clear the cache
+<strong>$ php artisan config:cache</strong>
 
-php artisan vendor:publish --provider="Youcandothis\Crud\CrudServiceProvider"
+## Auto load files
+<strong>$ composer dump-autoload</strong>
 
-
-register your middleware 'admin' => \App\Http\Middleware\AdminOnly::class, in app\Http\Kernel.php in $routeMiddleware group
-
-Auth::routes();
-Route::get('user/activation/{token}', 'Auth\RegisterController@userActivation');
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
-Route::group(['middleware' => ['web']], function () {
-    Route::get("/", 'HomeController@index')->name('home');
-});
+## Finaly publish the provider
+<strong>$ php artisan vendor:publish --provider="Youcandothis\Crud\CrudServiceProvider"</strong>
 
 
-// Start Admin Panel
-Route::get('admin/login','Admin\SessionsController@getLogin')->name('admin.login');
-Route::post('admin/login', 'Admin\SessionsController@postLogin');
+## Register middleware in app\Http\Kernel.php in $routeMiddleware group
+<strong>'admin' => \App\Http\Middleware\AdminOnly::class,</strong>
 
-Route::group(['middleware'=>['admin'],'prefix'=>'admin','namespace'=>'Admin',], function(){ 
-    // dashborad 
-    Route::get('/', 'DashboardController@index')->name('admin-dashboard');
-    // logout
-    Route::get('logout','SessionsController@getLogout')->name('admin.logout');
-    // change - profile
-    Route::get('change-profile', 'SessionsController@getProfile')->name('change-profile');
-    Route::post('change-profile', 'SessionsController@postProfile')->name('admin.change_profile');
-    // change password
-    Route::get('change-password', 'SessionsController@getChangePassword')->name('get-change-pass');
-    Route::post('change-password', 'SessionsController@postChangePassword')->name('change-pass');
-    // user save-update-delete
-    Route::resource('users','UsersController');
-    // set user status( active/deactive )
-    Route::get('switchstatus/{id}', 'UsersController@SwitchStatus')->name('users.switch');
-    // blog categories
-    Route::resource('blog_categories','BlogCategoryController');
-    // blogs
-    Route::resource('blogs','BlogController');
-    Route::get('Blogswitchstatus/{id}', 'BlogController@SwitchStatus')->name('blogs.switch');
-    // extras
-    Route::resource('extra','ExtrasController');
-    // faqs
-    Route::resource('faq','FaqsController');
-    // feedbacks
-    Route::resource('feedback','FeedbacksController');
-    // inquirys
-    Route::resource('inquiry','InquiriesController');
-    // testimonials
-    Route::resource('testimonial','TestimonialsController');
-    //site settings
-    Route::get('site-settings', 'DashboardController@site_settings')->name('site-settings-get');
-    Route::post('site-settings', 'DashboardController@post_site_settings')->name('site-settings');
-});
-// End Admin Panel
+then run localhost:8000
+
+Have fun..!!!!!
