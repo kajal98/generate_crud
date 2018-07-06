@@ -40,6 +40,11 @@ then put this line to your config/app.php file in providers array
 ## Register middleware in app\Http\Kernel.php in $routeMiddleware group
 <strong>'admin' => \App\Http\Middleware\AdminOnly::class,</strong>
 
+## autoload helper file in your composer.json file under "autoload-dev" array
+"files": [
+    "app/helpers.php"
+]
+
 then run localhost:8000
 
 Have fun..!!!!!
