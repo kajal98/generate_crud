@@ -1,6 +1,6 @@
 {
     "name": "kajalpandya/crud",
-    "description": "Run command in terminal and make ready made crud for your entity",
+    "description": "Run command in terminal and make ready made admin panel, theme and views for your admin panel.",
     "keywords": ["laravel", "repository", "crud", "adminpanel", "eloquent", "model", "cache"],
     "type": "crud",
     "authors": [
