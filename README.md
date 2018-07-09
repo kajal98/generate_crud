@@ -69,7 +69,7 @@ Have fun..!!!!!
 <strong>Edit Blog</strong>![8](https://user-images.githubusercontent.com/18494848/42441543-0d3ad1b6-8386-11e8-8e82-9421c264f12b.png)<br />
 <strong>Show Blog</strong>![9](https://user-images.githubusercontent.com/18494848/42441531-0ac10ee6-8386-11e8-9f1b-da0f4c482119.png)<br />
 <strong>Inquiries Listing</strong>![10](https://user-images.githubusercontent.com/18494848/42441542-0ce1c8c8-8386-11e8-8d69-36e92e8edd0b.png)<br />
-<strong>Extra Pages</strong>![13]![11](https://user-images.githubusercontent.com/18494848/42442366-1cfc9a06-8388-11e8-803f-f6ad958eb65e.png)<br />
+<strong>Extra Pages</strong>![11](https://user-images.githubusercontent.com/18494848/42442366-1cfc9a06-8388-11e8-803f-f6ad958eb65e.png)<br />
 <strong>Edit Extra Pages</strong>![12](https://user-images.githubusercontent.com/18494848/42442460-54df763c-8388-11e8-9c6a-66a3d295e8fe.png)<br />
 <strong>FAQs</strong>![13](https://user-images.githubusercontent.com/18494848/42442365-1cb69e20-8388-11e8-914c-3578c14fcd9d.png)<br />
 <strong>Testimonials</strong>![14](https://user-images.githubusercontent.com/18494848/42442364-1c7044e8-8388-11e8-8182-eb64f43a7dff.png)
