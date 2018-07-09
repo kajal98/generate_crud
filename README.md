@@ -23,6 +23,12 @@ if all working good then put this line to your composer.json file
 ## update composer 
 <strong>$ composer update</strong>
 
+## Clear the cache
+<strong>$ php artisan config:cache</strong>
+
+## Auto load files
+<strong>$ composer dump-autoload</strong>
+
 ## Register provider and aliases
 then put this line to your config/app.php file in providers array
 <strong>Youcandothis\Crud\CrudServiceProvider::class,</strong>
@@ -31,12 +37,6 @@ then put this line to your config/app.php file in providers array
 
 and this in aliases array
 <strong>'Image' => Intervention\Image\Facades\Image::class,</strong>
-
-## Clear the cache
-<strong>$ php artisan config:cache</strong>
-
-## Auto load files
-<strong>$ composer dump-autoload</strong>
 
 ## Finaly publish the provider
 <strong>$ php artisan vendor:publish --provider="Youcandothis\Crud\CrudServiceProvider"</strong>
