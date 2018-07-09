@@ -26,7 +26,8 @@
         "laravelcollective/html": "5.5.*",
         "spatie/laravel-newsletter": "^4.2",
         "unisharp/laravel-ckeditor": "^4.6",
-        "unisharp/laravel-filemanager": "~1.8"
+        "unisharp/laravel-filemanager": "~1.8",
+        "kajalpandya/generate_laravel_crud": "^1.0"
     },
     "autoload": {
         "psr-4": {
