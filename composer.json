@@ -33,5 +33,5 @@
             "Youcandothis\\Crud\\": "youcandothis/crud/src/providers",
             "Youcandothis\\Crud\\Src\\Commands\\": "youcandothis/crud/src/commands"
         }
-    },
+    }
 }
