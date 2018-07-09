@@ -28,9 +28,9 @@
 						<td>
 							<a href="{!!route('feedbacks.switch',['id'=>$feedback->id])!!}" title="Click here to switch status of feedback">
 								@if($feedback->status)
-								<i class='btn btn-primary fa fa-check'></i>
+									<button class="btn btn-success"><i class='fa fa-check'></i></button>
 								@else
-								<i class='btn btn-danger fa fa-ban'></i>
+									<button class="btn btn-danger	"><i class='fa fa-ban'></i></button>
 								@endif
 							</a>                   
 						</td>

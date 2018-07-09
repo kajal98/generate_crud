@@ -25,8 +25,9 @@
 						<span class="user-name">{!! Auth::user()->name !!}</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right">
-						<a class="dropdown-item" href="{!! route('logout') !!}"><i class="fa fa-key" aria-hidden="true"></i>Change Password</a>
-						<a class="dropdown-item" href="{!! route('logout') !!}"><i class="fa fa-user" aria-hidden="true"></i>Change Profile</a>
+						<a class="dropdown-item" href="{!! route('get-change-pass') !!}"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a>
+						<a class="dropdown-item" href="{!! route('change-profile') !!}"><i class="fa fa-user" aria-hidden="true"></i> Change Profile</a>
+						<a class="dropdown-item" href="{!! route('site-settings-get') !!}"><i class="fa fa-cog" aria-hidden="true"></i> Site Settings</a>
 						<a class="dropdown-item" href="{!! route('logout') !!}"><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</a>
 					</div>
 				</div>

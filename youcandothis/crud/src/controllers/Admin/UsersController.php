@@ -13,7 +13,7 @@ class UsersController extends Controller
 {
   public function index()
   {
-    $users = User::orderBy('id','desc')->paginate(10);
+    $users = User::where('role','!=','admin')->paginate(10);
     return view('admin.users.index',compact('users'));
   }
   public function create()
@@ -40,8 +40,7 @@ class UsersController extends Controller
       Former::withErrors($validator);
       return redirect()->back()->withErrors($validator)->withInput();
     }
-    try
-    {
+    
       $user=New User;
       $user->name=$request->get('name');
       $user->role= 'user';
@@ -54,21 +53,9 @@ class UsersController extends Controller
       $user->country = $request->get('country');
       $user->phone = $request->get('phone');
       $user->mobile = $request->get('mobile');
-      $user->send_sms_time = Carbon::now();
       $user->save();
-      // $data = array('email' => $request->get('email'),
-      //   'name' => $request->get('name'),
-      //   'password' => $request->get('password'));
-      // Mail::send('emails.add_user', ['data' => $data], function($message) use($request) {
-      //   $message->to($request->get('email'));
-      //   $message->subject('Your Account Detail' . $request->get('name'));
-      // });
       return redirect()->route('users.index')->withSuccess("Insert record successfully.");
-    }
-    catch(\Exception $e)
-    {
-      return redirect()->route('users.index')->withError('Something went wrong, Please try after sometime.');
-    }
+    
   }
   public function edit($id)
   { 
@@ -95,16 +82,7 @@ class UsersController extends Controller
     try
     {
       $user=User::find($id);
-      $status = $user->active;
       $user->update($request->all());
-      // if($status != $user->active)
-      // {
-      //   $status = $user->active ? 'approved' : 'deactivated';
-      //   Mail::send('emails.switch_status', ['data' => $user], function($message) use($request, $status) {
-      //     $message->to($request->get('email'));
-      //     $message->subject('Your account has been '.$status);
-      //   });
-      // }
       return redirect()->route('users.index')->withSuccess('Record updated successfully');
     }
     catch(\Exception $e)
@@ -185,9 +163,6 @@ class UsersController extends Controller
         }
         $user = User::find(Auth::user()->id);
         $user->update($request->all());
-
-        //dd($user);
-
         return redirect()->to('portal/settings')->with('success','Profile updated successfully');
     }
 
@@ -226,8 +201,6 @@ class UsersController extends Controller
                 $user = User::find(Auth::id());
                 $user->password = Hash::make($request->get('password'));
                 $user->save();
-                // send_message('Hello ' . title_case($user->name) . ' ! your password has been changed successfully.', $user->phone);
-                send_message('Your password is successfully changed.', $user->phone);
                 return Redirect::back()->with('success','Your password changed successfully');
             }
             else

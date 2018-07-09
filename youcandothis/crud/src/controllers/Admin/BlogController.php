@@ -83,16 +83,11 @@ class BlogController extends Controller
       Former::withErrors($validator);
       return redirect()->back()->withErrors($validator)->withInput();
     }
-    try
-    {
+    
       $blog=Blog::find($id);
       $blog->update($request->all());
       return redirect()->route('blogs.index')->withSuccess('Record updated successfully');
-    }
-    catch(\Exception $e)
-    {
-      return redirect()->route('blogs.index')->withError('Something went wrong, Please try after sometime.');
-    }       
+        
   }
   public function show($id)
   {

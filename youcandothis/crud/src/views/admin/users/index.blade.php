@@ -21,6 +21,7 @@
 						<th scope="col">Name</th>
 						<th scope="col">Email</th>
 						<th scope="col">Role</th>
+						<th scope="col">Active ?</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
@@ -31,6 +32,13 @@
 							<td>{!! $user->name !!}</td>
 							<td>{!! $user->email !!}</td>
 							<td>{!! $user->role !!}</td>
+							<td>
+								@if($user->active)
+								<button class="btn btn-success">Yes</button>
+								@else
+								<button class="btn btn-danger">No</button>
+								@endif
+							</td>
 							<td><a href="{!!route('users.show',['id'=>$user->id])!!}" class="btn btn-warning"><i class="fa fa-eye"></i></a> <a href="{!!route('users.edit',['id'=>$user->id])!!}" class="btn btn-success"><i class="fa fa-pencil"></i></a> <a href="{!!route('users.destroy',['id'=>$user->id])!!}" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
 						</tr>
 					@endforeach						 

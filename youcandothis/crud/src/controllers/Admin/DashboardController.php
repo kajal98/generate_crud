@@ -44,8 +44,6 @@ class DashboardController extends Controller
 	    'phone_2' => 'required',
 	    'copy_right' => 'required',
 	    'site_visitors' => 'required',
-	    'doctor_phone_number' => 'required',
-	    'question_limit' => 'required',
 	    ];
 	    $validator = Validator::make($request->all(),$rules);
 	    if ($validator->fails()) { 
@@ -61,16 +59,23 @@ class DashboardController extends Controller
 	      $site_setting->phone_2=$request->get('phone_2');
 	      $site_setting->copy_right=$request->get('copy_right');
 	      $site_setting->site_visitors=$request->get('site_visitors');
-	      $site_setting->doctor_phone_number=$request->get('doctor_phone_number');
-	      $site_setting->question_limit=$request->get('question_limit');
 	      $site_setting->save();
 	      //dd($site_setting);
-	      return redirect()->route('site-settings-get')->withSuccess("Settings saved successfully.");
+	      return redirect()->route('site-settings-get')->with('success', "Settings saved successfully.");
 	    }
 	    catch(\Exception $e)
 	    {
-	      return redirect()->route('site-settings-get')->withError('Something went wrong, Please try after sometime.');
+	      return redirect()->route('site-settings-get')->with('error', 'Something went wrong, Please try after sometime.');
 	    }
 	}
+
+	public function SwitchStatus($id)
+  {
+    $feedback = Feedback::find($id);
+    $feedback->status = $feedback->status == "1" ? "0" : "1";
+    $feedback->save();
+    return redirect()->route('feedback.index')->withSuccess('Status updated successfully');
+   
+  }
 
 }

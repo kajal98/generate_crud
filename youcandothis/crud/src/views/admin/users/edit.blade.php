@@ -76,7 +76,7 @@
                 <label class="col-sm-12 col-md-2 col-form-label">Click here to approve/active this user</label>
                 <div class="col-sm-12 col-md-10">
                     <input class="form-control" type="hidden" name="active" value="0">
-                    <input id="activate" style="left:20px" type="checkbox" value="{!! $user->active == 'active' ? 0 : 1 !!}" name="active">
+                    <input id="activate" style="left:20px" type="checkbox" name="active" value="1" {!! $user->active == true ? "checked" : "" !!}>
                 </div>
             </div>
             <div class="form-group row">

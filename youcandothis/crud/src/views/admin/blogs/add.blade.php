@@ -6,7 +6,7 @@
     <div class="pd-20 bg-white border-radius-4 box-shadow mb-30">
         <div class="clearfix">
             <div class="pull-left">
-                <h4 class="text-blue">Add New User</h4>
+                <h4 class="text-blue">Add New Blog</h4>
                 <p class="mb-30 font-14"></p>
             </div>
             <div class="pull-right">
@@ -111,10 +111,12 @@
 @section('scripts')
 <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
 <script>
-var options = {
-    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
-    allowedContent:true
+    var options = {
+//filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+//filebrowserImageUploadUrl: 'laravel-filemanager/upload?type=Images&_token=',
+filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
+allowedContent:true
 };
 $(document).ready(function() {
     var editor = CKEDITOR.replace( 'description',options);

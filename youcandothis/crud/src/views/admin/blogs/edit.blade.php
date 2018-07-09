@@ -33,7 +33,7 @@
             <div class="col-sm-12 col-md-10">
                 <select class="form-control selectpicker" name="blog_category_id" style="margin-left: 16px;">
                     @foreach(App\BlogCategory::all() as $b)
-                    <option value="{!! $blog->id !!}" {!! ($blog->blog_category_id == $b->id) ? "selected='selected'" :'' !!}>{!! $b->name !!}</option>
+                    <option value="{!! $b->id !!}" {!! ($blog->blog_category_id == $b->id) ? "selected='selected'" :'' !!}>{!! $b->name !!}</option>
                     @endforeach
                 </select>
                 @if($errors->has('blog_category_id'))<p class="help-block">{!! $errors->first('blog_category_id') !!}</p>@endif
@@ -75,14 +75,14 @@
             <label class="col-sm-12 col-md-2 col-form-label">Click here to publish/unpublish this blog</label>
             <div class="col-sm-12 col-md-10">
                 <input class="form-control" type="hidden" name="publish" value="0">
-                <input id="activate" style="left:20px" type="checkbox" name="publish" value="{!! $blog->publish ? true : false !!}">
+                <input id="activate" style="left:20px" type="checkbox" name="publish" value="1" {!! $blog->publish == true ? "checked" : "" !!}>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-12 col-md-2 col-form-label">Is archive or not ?</label>
             <div class="col-sm-12 col-md-10">
                 <input class="form-control" type="hidden" name="is_archive" value="0">
-                <input id="activate" style="left:20px" type="checkbox" name="is_archive" value="{!! $blog->is_archive ? true : false !!}">
+                <input id="activate" style="left:20px" type="checkbox" name="is_archive" value="1" {!! $blog->is_archive == true ? "checked" : "" !!}>
             </div>
         </div>
         <div class="form-group row">
@@ -115,10 +115,12 @@
 @section('scripts')
 <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
 <script>
-var options = {
-    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
-    allowedContent:true
+    var options = {
+//filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+//filebrowserImageUploadUrl: 'laravel-filemanager/upload?type=Images&_token=',
+filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
+allowedContent:true
 };
 $(document).ready(function() {
     var editor = CKEDITOR.replace( 'description',options);

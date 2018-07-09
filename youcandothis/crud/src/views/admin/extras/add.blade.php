@@ -61,13 +61,13 @@
 @section('scripts')
 <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
 <script>
-  var options = {
+    var options = {
     filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
     filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
     allowedContent:true
 };
-$(document).ready(function() {
-    var editor = CKEDITOR.replace( 'description',options);
+    $(document).ready(function() {
+        var editor = CKEDITOR.replace( 'description',options);
         var uploader = new plupload.Uploader({
             runtimes : 'html5,flash,silverlight,html4',
             browse_button : 'pickfiles',

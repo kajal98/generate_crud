@@ -39,11 +39,7 @@
         <div class="row" style="margin-left: 3px;">
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="clearfix" id="previewDiv">
-                    @if($case_study->image)
-                        <img src="{!! $blog->image_url('thumb') !!}" id='preview' height="100px" width="100px">
-                    @else
-                        <img src="{!! asset('/images/default.jpg') !!}" id='preview' height="100px" width="100px">
-                    @endif
+                    <img src="{!! asset('/images/default.jpg') !!}" id='preview' height="100px" width="100px">
                 </div>
                 <div id="filelist"></div>
                 <div id="progressbar"></div>
@@ -96,12 +92,14 @@
 @section('scripts')
 <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
 <script>
- var options = {
-    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
-    allowedContent:true
-};
-$(document).ready(function() {
+    var options = {
+        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+        filebrowserImageUploadUrl: 'laravel-filemanager/upload?type=Images&_token=',
+        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
+        allowedContent:true
+    };
+    $(document).ready(function() {
         var editor = CKEDITOR.replace( 'content',options);
         var editor = CKEDITOR.replace( 'why_case_study',options);
         var uploader = new plupload.Uploader({

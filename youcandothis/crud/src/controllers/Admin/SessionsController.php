@@ -73,21 +73,21 @@ class SessionsController extends Controller
             Former::withErrors($validator);
             return redirect()->back()->withErrors($validator)->withInput()->with('error','Please correct following errors');
         }
-        $user = User::find(Auth::user()->id);
-        $user->name = Input::get('name');
-        $user->email = Input::get('email');
-        if(!empty(Input::get('password')))
-        {
-            $user->password = Input::get('password');
-        }
+        $user = Auth::user();
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        // if(!empty($request->get('password')))
+        // {
+        //     $user->password = $request->get('password');
+        // }
         $user->save();
         return redirect()->back()->with('success','Profile updated successfully');
     }
     public function getChangePassword()
     {
-        return view('admin.sessions.change-password');
+        return view('admin.sessions.change_password');
     }
-    public function postChangePassword()
+    public function postChangePassword(Request $request)
     {
         $current_password = Auth::user()->password;
         $rules = array(
@@ -95,7 +95,7 @@ class SessionsController extends Controller
             'password'  => array('required','min:6','max:20','confirmed','different:old_password'),
             'password_confirmation'=>array('required','alpha_num')
             );
-        $validation = Validator::make(Input::all(), $rules);
+        $validation = Validator::make($request->all(), $rules);
 
         if ($validation->fails())
         {
@@ -103,10 +103,10 @@ class SessionsController extends Controller
         }
         else
         {
-            $old_password = Input::get('old_password');
+            $old_password = $request->get('old_password');
             if(Hash::check($old_password,$current_password))
             {
-                $new_pass = Hash::make(Input::get('password'));
+                $new_pass = Hash::make($request->get('password'));
                 $user = User::find(Auth::user()->id);
                 $user->password = $new_pass;
                 $user->save();

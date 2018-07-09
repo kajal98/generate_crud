@@ -36,8 +36,7 @@ class ExtrasController extends Controller
       return redirect()->back()->withErrors($validator)->withInput();
     }
     //if validation success then save data to the database using below code 
-    try
-    {
+   
       // create  new extra
       $extra=New Extra;
       $extra->title=$request->get('title');
@@ -47,11 +46,7 @@ class ExtrasController extends Controller
       $extra->save();
       return redirect()->route('extra.index')->withSuccess("Insert record successfully.");
 
-    }
-    catch(\Exception $e)
-    {
-      return redirect()->route('extra.index')->withError('Something went wrong, Please try after sometime.');
-    }
+    
   }
 
   public function edit($id)

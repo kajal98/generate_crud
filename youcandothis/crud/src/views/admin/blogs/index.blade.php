@@ -43,17 +43,17 @@
 								<td>
 									<a href="{!!route('blogs.switch',['id'=>$blog->id])!!}" title="Click here to switch account status">
 										@if($blog->publish)
-										<i class="fa fa-check"></i>
+										<button class="btn btn-success"><i class="fa fa-check"></i></button>
 										@else
-										<i class="fa fa-ban"></i>
+										<button class="btn btn-danger"><i class="fa fa-ban"></i></button>
 										@endif
 									</a>                   
 								</td>
 								<td>
 									@if($blog->is_archive)
-									Yes
+									<button class="btn btn-success">Yes</button>
 									@else
-									No
+									<button class="btn btn-danger">No</button>
 									@endif
 								</td>
 								<td><a href="{!!route('blogs.show',['id'=>$blog->id])!!}" class="btn btn-warning"><i class="fa fa-eye"></i></a> <a href="{!!route('blogs.edit',['id'=>$blog->id])!!}" class="btn btn-success"><i class="fa fa-pencil"></i></a> <a href="{!!route('blogs.destroy',['id'=>$blog->id])!!}" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
