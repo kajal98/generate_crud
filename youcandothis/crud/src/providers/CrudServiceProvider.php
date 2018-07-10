@@ -30,7 +30,8 @@ class CrudServiceProvider extends ServiceProvider
             __DIR__.'/../models' => base_path('app'),
             __DIR__.'/../middlewares' => base_path('app/Http/Middleware'),
             __DIR__.'/../migrations' => base_path('database/migrations'),
-            __DIR__.'/../public/tmp' => base_path('public/tmp')
+            __DIR__.'/../public/tmp' => base_path('public/tmp'),
+
         ]);
 
         $this->loadRoutesFrom(__DIR__.'/../web.php');
