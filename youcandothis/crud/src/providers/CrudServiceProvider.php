@@ -13,7 +13,7 @@ class CrudServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //include __DIR__.'/../routes.php';
+        //include __DIR__.'/../web.php';
         if ($this->app->runningInConsole()) {
             $this->commands([
                 Src\Commands\GenerateCrud::class,
@@ -30,8 +30,7 @@ class CrudServiceProvider extends ServiceProvider
             __DIR__.'/../models' => base_path('app'),
             __DIR__.'/../middlewares' => base_path('app/Http/Middleware'),
             __DIR__.'/../migrations' => base_path('database/migrations'),
-            __DIR__.'/../public/tmp' => base_path('public/tmp'),
-
+            __DIR__.'/../public/tmp' => base_path('public/tmp')
         ]);
 
         $this->loadRoutesFrom(__DIR__.'/../web.php');
