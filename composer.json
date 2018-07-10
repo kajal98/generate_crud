@@ -1,6 +1,6 @@
 {
     "name": "kajalpandya/crud",
-    "description": "Run command in terminal and make ready made admin panel, theme and views for your admin panel.",
+    "description": "Run command in terminal and make ready made crud for your entity",
     "keywords": ["laravel", "repository", "crud", "adminpanel", "eloquent", "model", "cache"],
     "type": "crud",
     "authors": [
@@ -26,13 +26,12 @@
         "laravelcollective/html": "5.5.*",
         "spatie/laravel-newsletter": "^4.2",
         "unisharp/laravel-ckeditor": "^4.6",
-        "unisharp/laravel-filemanager": "~1.8",
-        "kajalpandya/generate_laravel_crud": "^1.0"
+        "unisharp/laravel-filemanager": "~1.8"
     },
     "autoload": {
         "psr-4": {
             "Youcandothis\\Crud\\": "youcandothis/crud/src/providers",
             "Youcandothis\\Crud\\Src\\Commands\\": "youcandothis/crud/src/commands"
         }
-    }
+    },
 }
