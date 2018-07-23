@@ -37,12 +37,13 @@ then put this line to your config/app.php file in providers array
 ## Clear the cache again
 <strong>$ php artisan config:cache</strong>
 
-and this in aliases array
-<strong>'Image' => Intervention\Image\Facades\Image::class,</strong>
+
 
 ## Finaly publish the provider
 <strong>$ php artisan vendor:publish --provider="Youcandothis\Crud\CrudServiceProvider"</strong>
 
+and this in aliases array
+<strong>'Image' => Intervention\Image\Facades\Image::class,</strong>
 
 ## Register middleware in app\Http\Kernel.php in $routeMiddleware group
 <strong>'admin' => \App\Http\Middleware\AdminOnly::class,</strong>
