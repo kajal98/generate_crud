@@ -26,7 +26,7 @@
             <div class="form-group row">
                 <label class="col-sm-12 col-md-2 col-form-label">Email</label>
                 <div class="col-sm-12 col-md-10">
-                    <input class="form-control" type="text" value="{!! $user->email !!}" name="email" placeholder="abc@gmail.com">
+                    <input class="form-control" type="text" value="{!! $user->email !!}" name="email" placeholder="abc@gmail.com" readonly="">
                     @if($errors->has('email'))<p class="help-block">{!! $errors->first('email') !!}</p>@endif
                 </div>
             </div>
