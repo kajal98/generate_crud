@@ -1,4 +1,6 @@
-# Clone the repository and move to your directory
+# Clone the repository and get readymate admin panel
+
+## move to your directory
 <strong>$ cd blog</strong>
 
 ## update composer 
