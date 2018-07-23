@@ -18,7 +18,7 @@ class CreateTestimonialsTable extends Migration
             $table->string('name', 255)->nullable();
             $table->string('designation', 255)->nullable();
             $table->text('text')->nullable();
-            $table->tinyInteger('status')->default(0);
+            $table->tinyInteger('status', 0);
             $table->timestamps();
         });
     }

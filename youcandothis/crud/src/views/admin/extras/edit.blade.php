@@ -1,5 +1,5 @@
-@extends('layouts.admin')
-@section('title','Add Extra Page')
+@extends('admin.layouts.panel')
+@section('title','Edit Extra Page')
 @section('content')
 <div class="min-height-200px">
     <!-- Default Basic Forms Start -->
@@ -10,7 +10,7 @@
                 <p class="mb-30 font-14"></p>
             </div>
             <div class="pull-right">
-                <a href="{!! route('extra.index') !!}" class="btn btn-primary btn-sm" rel="content-y"  role="button"><i class="fa fa-arrow-left"></i> Back</a>
+                <a href="{!! route('extra.index') !!}" class="btn btn-sm btn-primary btn-sm" rel="content-y"  role="button"><i class="fa fa-arrow-left"></i> Back</a>
             </div>
         </div>
         {!! Former::horizontal_open()->action( URL::route("extra.update", $extra->id) )->method('patch')->class('p-t-15')->role('form')->id('form') !!}
@@ -53,7 +53,7 @@
                 {!! Former::hidden('image')->id('photo') !!} 
             </div>
         </div>                     
-        {!!Former::submit('Save')->class('btn btn-primary btn-cons m-t-10')!!}
+        {!!Former::submit('Save')->class('btn btn-sm btn-primary btn-cons m-t-10')!!}
         {!! Former::close() !!}
     </div>
 </div>

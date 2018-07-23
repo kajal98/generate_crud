@@ -1,5 +1,5 @@
-@extends('layouts.auth')
-
+@extends('admin.layouts.auth')
+@section('title','Login')
 @section('content')
 <div class="login-wrap customscroll d-flex align-items-center flex-wrap justify-content-center pd-20">
         <div class="login-box bg-white box-shadow pd-30 border-radius-5">

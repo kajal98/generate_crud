@@ -1,12 +1,12 @@
-@extends('layouts.admin')
-@section('title','Feedback')
+@extends('admin.layouts.panel')
+@section('title','Feedbacks')
 @section('content')
 <div class="min-height-200px">
 	<!-- Contextual classes Start -->
 	<div class="pd-20 bg-white border-radius-4 box-shadow mb-30">
 		<div class="clearfix mb-20">
 			<div class="pull-left">
-				<h4 class="text-blue">Feedback</h4>
+				<h4 class="text-blue">Feedbacks</h4>
 			</div>
 		</div>
 		<div class="table-responsive">
@@ -28,15 +28,15 @@
 						<td>
 							<a href="{!!route('feedbacks.switch',['id'=>$feedback->id])!!}" title="Click here to switch status of feedback">
 								@if($feedback->status)
-									<button class="btn btn-success"><i class='fa fa-check'></i></button>
+									<button class="btn btn-sm btn-success"><i class='fa fa-check'></i></button>
 								@else
-									<button class="btn btn-danger	"><i class='fa fa-ban'></i></button>
+									<button class="btn btn-sm btn-danger	"><i class='fa fa-ban'></i></button>
 								@endif
 							</a>                   
 						</td>
 						<td>
-							<a href="{!!route('feedback.show',['id'=>$feedback->id])!!}" class="btn btn-warning"><i class="fa fa-eye"></i></a>
-							<a href="{!!route('feedback.destroy',['id'=>$feedback->id])!!}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+							<a href="{!!route('feedback.show',['id'=>$feedback->id])!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
+							<a href="{!!route('feedback.destroy',['id'=>$feedback->id])!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
 						</td>
 					</tr>
 					@endforeach

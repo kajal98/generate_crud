@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.panel')
 @section('title','Extra Pages')
 @section('content')
 <div class="min-height-200px">
@@ -9,7 +9,7 @@
 				<h4 class="text-blue">Extra Pages</h4>
 			</div>
 			<div class="pull-right">
-				<a href="{!! route('extra.create') !!}" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add Extra Page</a>
+				<a href="{!! route('extra.create') !!}" class="btn btn-sm btn-primary scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add Extra Page</a>
 			</div>
 		</div>
 		<div class="table-responsive">
@@ -28,9 +28,9 @@
 						<td>{!! $extra->code !!}</td>
 						<td>{!! title_case($extra->title) !!}</td>
 						<td>
-							<a href="{!!route('extra.show',['id'=>$extra->id])!!}" class="btn btn-warning"><i class="fa fa-eye"></i></a>
-							<a href="{!!route('extra.edit',['id'=>$extra->id])!!}" class="btn btn-success"><i class="fa fa-pencil"></i></a>
-							<a href="{!!route('extra.destroy',['id'=>$extra->id])!!}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+							<a href="{!!route('extra.show',['id'=>$extra->id])!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
+							<a href="{!!route('extra.edit',['id'=>$extra->id])!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>
+							<a href="{!!route('extra.destroy',['id'=>$extra->id])!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
 						</td>
 					</tr>
 					@endforeach

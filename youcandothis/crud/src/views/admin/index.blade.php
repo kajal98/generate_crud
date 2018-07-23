@@ -1,4 +1,5 @@
-@extends('layouts.admin')
+@extends('admin.layouts.panel')
+@section('title','Dashboard')
 @section('content')
 <div class="row clearfix progress-box">
 	<div class="col-lg-3 col-md-6 col-sm-12 mb-30">

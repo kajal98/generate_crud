@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.panel')
 @section('title','Edit Testimonial')
 @section('content')
 <div class="min-height-200px">
@@ -10,7 +10,7 @@
                 <p class="mb-30 font-14"></p>
             </div>
             <div class="pull-right">
-                <a href="{!! route('testimonial.index') !!}" class="btn btn-primary btn-sm" rel="content-y"  role="button"><i class="fa fa-arrow-left"></i> Back</a>
+                <a href="{!! route('testimonial.index') !!}" class="btn btn-sm btn-primary btn-sm" rel="content-y"  role="button"><i class="fa fa-arrow-left"></i> Back</a>
             </div>
         </div>
         {!! Former::horizontal_open()->action( URL::route("testimonial.update",$testimonial->id) )->method('PATCH')->class('p-t-15')->role('form')->id('form') !!}
@@ -35,16 +35,17 @@
                 @if($errors->has('text'))<p class="help-block">{!! $errors->first('text') !!}</p>@endif
             </div>                                         
         </div>
-
         <div class="form-group row">
-            <label class="col-sm-12 col-md-2 col-form-label">Click here to approve/active this testimonial</label>
-            <div class="col-sm-12 col-md-10">
-                <input class="form-control" type="hidden" name="status" value="0">
-                <input id="activate" style="left:20px" type="checkbox" value="{!! $testimonial->status == 'status' ? 0 : 1 !!}" name="status">
+            <div class="col-md-6 col-sm-12">
+                <div class="custom-control custom-checkbox mb-5">
+                    <input class="form-control" type="hidden" name="status" value="0">
+                    <input type="checkbox" class="custom-control-input" id="status" name="status" value="1" {!! $testimonial->status == true ? "checked" : "" !!}>
+                    <label class="custom-control-label" for="status">Click here to active/inactive this testimonial</label>
+                </div>
             </div>
-        </div>                       
-        {!!Former::submit('Save')->class('btn btn-primary btn-cons m-t-10')!!}
-        <button class="btn btn-warning" ><a style="color: white;" href="{!! route('testimonial.index') !!}">Back</a></button>
+        </div>                  
+        {!!Former::submit('Save')->class('btn btn-sm btn-primary btn-cons m-t-10')!!}
+        <button class="btn btn-sm btn-warning" ><a style="color: white;" href="{!! route('testimonial.index') !!}">Back</a></button>
         {!! Former::close() !!}
     </div>
 </div>

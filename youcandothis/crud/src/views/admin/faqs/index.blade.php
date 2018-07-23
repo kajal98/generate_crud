@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.panel')
 @section('title','Faqs')
 @section('content')
 <div class="min-height-200px">
@@ -9,7 +9,7 @@
 				<h4 class="text-blue">Faqs</h4>
 			</div>
 			<div class="pull-right">
-				<a href="{!! route('faq.create') !!}" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add FAQ</a>
+				<a href="{!! route('faq.create') !!}" class="btn btn-sm btn-primary scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add FAQ</a>
 			</div>
 		</div>
 		<div class="table-responsive">
@@ -28,9 +28,9 @@
 						<td>{!! $faq->question !!}</td>
 						<td>{!! $faq->status ? "Open" : "Close" !!}</td>
 						<td>
-							<a href="{!!route('faq.show',['id'=>$faq->id])!!}" class="btn btn-warning"><i class="fa fa-eye"></i></a>
-							<a href="{!!route('faq.edit',['id'=>$faq->id])!!}" class="btn btn-success"><i class="fa fa-pencil"></i></a>
-							<a href="{!!route('faq.destroy',['id'=>$faq->id])!!}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+							<a href="{!!route('faq.show',['id'=>$faq->id])!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
+							<a href="{!!route('faq.edit',['id'=>$faq->id])!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>
+							<a href="{!!route('faq.destroy',['id'=>$faq->id])!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
 						</td>
 					</tr>
 					@endforeach

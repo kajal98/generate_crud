@@ -17,26 +17,6 @@ class FeedbacksController extends Controller
     return view('admin.feedbacks.index',compact('feedbacks'));
   }
 
-  public function create()
-  {
-    //
-  }
-
-  public function store(Request $request)
-  {
-    //
-  }
-
-  public function edit($id)
-  { 
-    //
-  }
-
-  public function update(Request $request, $id)
-  { 
-    //  
-  }
-
   public function show($id)
   {
     $feedback = Feedback::find($id);

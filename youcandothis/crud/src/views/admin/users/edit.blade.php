@@ -1,5 +1,5 @@
-@extends('layouts.admin')
-@section('title','Add User')
+@extends('admin.layouts.panel')
+@section('title','Edit User')
 @section('content')
 <div class="min-height-200px">
     <!-- Default Basic Forms Start -->
@@ -10,7 +10,7 @@
                 <p class="mb-30 font-14"></p>
             </div>
             <div class="pull-right">
-                <a href="{!! route('users.index') !!}" class="btn btn-primary btn-sm" rel="content-y"  role="button"><i class="fa fa-arrow-left"></i> Back</a>
+                <a href="{!! route('users.index') !!}" class="btn btn-sm btn-primary btn-sm" rel="content-y"  role="button"><i class="fa fa-arrow-left"></i> Back</a>
             </div>
         </div>
            {!! Former::horizontal_open()->action( URL::route("users.update",$user->id) )->method('PATCH')->class('p-t-15')->role('form')->id('form') !!}
@@ -73,10 +73,12 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-12 col-md-2 col-form-label">Click here to approve/active this user</label>
-                <div class="col-sm-12 col-md-10">
-                    <input class="form-control" type="hidden" name="active" value="0">
-                    <input id="activate" style="left:20px" type="checkbox" name="active" value="1" {!! $user->active == true ? "checked" : "" !!}>
+                <div class="col-md-6 col-sm-12">
+                    <div class="custom-control custom-checkbox mb-5">
+                        <input class="form-control" type="hidden" name="active" value="0">
+                        <input type="checkbox" class="custom-control-input" id="active" name="active" value="1" {!! $user->active == true ? "checked" : "" !!}>
+                        <label class="custom-control-label" for="active">Click here to active/inactive this user</label>
+                    </div>
                 </div>
             </div>
             <div class="form-group row">

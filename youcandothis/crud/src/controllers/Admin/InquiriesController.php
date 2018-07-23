@@ -17,26 +17,6 @@ class InquiriesController extends Controller
     return view('admin.inquiries.index',compact('inquiries'));
   }
 
-  public function create()
-  {
-    //
-  }
-
-  public function store(Request $request)
-  {
-    //
-  }
-
-  public function edit($id)
-  { 
-    //
-  }
-
-  public function update(Request $request, $id)
-  { 
-    //
-  }
-
   public function show($id)
   {
     $inquiry = Inquiry::find($id);

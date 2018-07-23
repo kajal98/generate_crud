@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.panel')
 @section('title','Faq Detail')
 @section('content')
 <div class="min-height-200px">
@@ -9,7 +9,7 @@
                 <h4 class="text-blue">Faq Detail</h4>
             </div>  
             <div class="pull-right">
-                <a href="{!! route('faq.index') !!}" class="btn btn-primary btn-sm" rel="content-y"  role="button"><i class="fa fa-arrow-left"></i> Back</a>
+                <a href="{!! route('faq.index') !!}" class="btn btn-sm btn-primary btn-sm" rel="content-y"  role="button"><i class="fa fa-arrow-left"></i> Back</a>
             </div>
         </div>
         <div class="table-responsive">

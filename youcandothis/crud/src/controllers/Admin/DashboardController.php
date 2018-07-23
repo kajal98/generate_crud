@@ -23,12 +23,6 @@ class DashboardController extends Controller
 		return view('admin.index',compact('users','blogs','inquiries','feedbacks'));        
 	}
 
-	public function payments()
-	{
-		$user_packages = UserPackage::where('package_id', '!=', 1)->orderBy('created_at','desc')->paginate(10);
-		return view('admin.payment',compact('user_packages'));
-	}
-
 	public function site_settings()
 	{
 		$site_setting = SiteSetting::first();
@@ -68,14 +62,5 @@ class DashboardController extends Controller
 	      return redirect()->route('site-settings-get')->with('error', 'Something went wrong, Please try after sometime.');
 	    }
 	}
-
-	public function SwitchStatus($id)
-  {
-    $feedback = Feedback::find($id);
-    $feedback->status = $feedback->status == "1" ? "0" : "1";
-    $feedback->save();
-    return redirect()->route('feedback.index')->withSuccess('Status updated successfully');
-   
-  }
 
 }

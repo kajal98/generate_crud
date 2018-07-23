@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.panel')
 @section('title','Blog Categories')
 @section('content')
 <div class="min-height-200px">
@@ -9,7 +9,7 @@
 				<h4 class="text-blue">Blog Categories</h4>
 			</div>
 			<div class="pull-right">
-				<a href="{!! route('blog_categories.create') !!}" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add Blog Category</a>
+				<a href="{!! route('blog_categories.create') !!}" class="btn btn-sm btn-primary scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add Blog Category</a>
 			</div>
 		</div>
 		<div class="table-responsive">
@@ -25,7 +25,7 @@
 					@foreach($blog_categories as $blog_category)
 					<tr>													
 						<td>{!! $blog_category->name !!}</td>
-						<td><a href="{!!route('blog_categories.edit',['id'=>$blog_category->id])!!}" class="btn btn-success"><i class="fa fa-pencil"></i></a> <a href="{!!route('blog_categories.destroy',['id'=>$blog_category->id])!!}" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+						<td><a href="{!!route('blog_categories.edit',['id'=>$blog_category->id])!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a> <a href="{!!route('blog_categories.destroy',['id'=>$blog_category->id])!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a></td>
 					</tr>
 					@endforeach
 				</tbody>

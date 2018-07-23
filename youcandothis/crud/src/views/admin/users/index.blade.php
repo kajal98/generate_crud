@@ -1,4 +1,5 @@
-@extends('layouts.admin')
+@extends('admin.layouts.panel')
+@section('title','Users')
 @section('content')
 <div class="min-height-200px">
 
@@ -9,7 +10,7 @@
 				<h4 class="text-blue">Users</h4>
 			</div>
 			<div class="pull-right">
-				<a href="{!! route('users.create') !!}" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add User</a>
+				<a href="{!! route('users.create') !!}" class="btn btn-sm btn-primary scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add User</a>
 			</div>
 		</div>
 		<div class="table-responsive">
@@ -34,12 +35,12 @@
 							<td>{!! $user->role !!}</td>
 							<td>
 								@if($user->active)
-								<button class="btn btn-success">Yes</button>
+								<button class="btn btn-sm btn-success">Yes</button>
 								@else
-								<button class="btn btn-danger">No</button>
+								<button class="btn btn-sm btn-danger">No</button>
 								@endif
 							</td>
-							<td><a href="{!!route('users.show',['id'=>$user->id])!!}" class="btn btn-warning"><i class="fa fa-eye"></i></a> <a href="{!!route('users.edit',['id'=>$user->id])!!}" class="btn btn-success"><i class="fa fa-pencil"></i></a> <a href="{!!route('users.destroy',['id'=>$user->id])!!}" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+							<td><a href="{!!route('users.show',['id'=>$user->id])!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a> <a href="{!!route('users.edit',['id'=>$user->id])!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a> <a href="{!!route('users.destroy',['id'=>$user->id])!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a></td>
 						</tr>
 					@endforeach						 
 				</tbody>

@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.panel')
 @section('title','Edit Blog Category')
 @section('content')
 <div class="min-height-200px">
@@ -10,7 +10,7 @@
                 <p class="mb-30 font-14"></p>
             </div>
             <div class="pull-right">
-                <a href="{!! route('blog_categories.index') !!}" class="btn btn-primary btn-sm" rel="content-y"  role="button"><i class="fa fa-arrow-left"></i> Back</a>
+                <a href="{!! route('blog_categories.index') !!}" class="btn btn-sm btn-primary btn-sm" rel="content-y"  role="button"><i class="fa fa-arrow-left"></i> Back</a>
             </div>
         </div>
         {!! Former::horizontal_open()->action( URL::route("blog_categories.update",$blog_category->id) )->method('PATCH')->class('p-t-15')->role('form')->id('form') !!}
@@ -21,8 +21,8 @@
                 @if($errors->has('name'))<p class="help-block">{!! $errors->first('name') !!}</p>@endif
             </div>                                   
         </div>
-    {!!Former::submit('Save')->class('btn btn-primary btn-cons m-t-10')!!}
-    <button class="btn btn-warning" ><a style="color: white;" href="{!! route('blog_categories.index') !!}">Back</a></button>
+    {!!Former::submit('Save')->class('btn btn-sm btn-primary btn-cons m-t-10')!!}
+    <button class="btn btn-sm btn-warning" ><a style="color: white;" href="{!! route('blog_categories.index') !!}">Back</a></button>
     {!! Former::close() !!}
 </div>
 @endsection

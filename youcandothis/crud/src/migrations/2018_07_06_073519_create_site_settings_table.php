@@ -15,7 +15,6 @@ class CreateSiteSettingsTable extends Migration
     {
         Schema::create('site_settings', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('question_limit')->nullable();
             $table->string('title', 255)->nullable();
             $table->string('email', 255)->nullable();
             $table->string('phone_1', 255)->nullable();

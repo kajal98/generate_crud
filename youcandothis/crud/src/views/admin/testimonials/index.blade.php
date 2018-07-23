@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.panel')
 @section('title','Testimonials')
 @section('content')
 <div class="min-height-200px">
@@ -9,7 +9,7 @@
 				<h4 class="text-blue">Testimonials</h4>
 			</div>
 			<div class="pull-right">
-				<a href="{!! route('testimonial.create') !!}" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add Testimonial</a>
+				<a href="{!! route('testimonial.create') !!}" class="btn btn-sm btn-primary scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add Testimonial</a>
 			</div>
 		</div>
 		<div class="table-responsive">
@@ -30,15 +30,15 @@
 						<td>{!! title_case($testimonial->designation) !!}</td>
 						<td>
 							@if($testimonial->status)
-							<button class="btn btn-success">Yes</button>
+							<button class="btn btn-sm btn-success">Yes</button>
 							@else
-							<button class="btn btn-danger">No</button>
+							<button class="btn btn-sm btn-danger">No</button>
 							@endif
 						</td>
 						<td>
-							<a href="{!!route('testimonial.show',['id'=>$testimonial->id])!!}" class="btn btn-warning"><i class="fa fa-eye"></i></a>
-							<a href="{!!route('testimonial.edit',['id'=>$testimonial->id])!!}" class="btn btn-success"><i class="fa fa-pencil"></i></a>
-							<a href="{!!route('testimonial.destroy',['id'=>$testimonial->id])!!}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+							<a href="{!!route('testimonial.show',['id'=>$testimonial->id])!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
+							<a href="{!!route('testimonial.edit',['id'=>$testimonial->id])!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>
+							<a href="{!!route('testimonial.destroy',['id'=>$testimonial->id])!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
 						</td>
 					</tr>
 					@endforeach

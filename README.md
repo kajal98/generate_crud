@@ -23,17 +23,19 @@ if all working good then put this line to your composer.json file
 ## update composer 
 <strong>$ composer update</strong>
 
+## Register provider and aliases
+then put this line to your config/app.php file in providers array
+<strong>Youcandothis\Crud\CrudServiceProvider::class,</strong>
+<strong>Intervention\Image\ImageServiceProvider::class,</strong>
+
 ## Clear the cache
 <strong>$ php artisan config:cache</strong>
 
 ## Auto load files
 <strong>$ composer dump-autoload</strong>
 
-## Register provider and aliases
-then put this line to your config/app.php file in providers array
-<strong>Youcandothis\Crud\CrudServiceProvider::class,</strong>
-<strong>Intervention\Image\ImageServiceProvider::class,</strong>
-
+## Clear the cache again
+<strong>$ php artisan config:cache</strong>
 
 and this in aliases array
 <strong>'Image' => Intervention\Image\Facades\Image::class,</strong>
@@ -46,13 +48,21 @@ and this in aliases array
 <strong>'admin' => \App\Http\Middleware\AdminOnly::class,</strong>
 
 
-## autoload helper file in your composer.json file under "autoload-dev" array
+## autoload helper file in your composer.json file under "autoload" array
 "files": [
     "app/helpers.php"
 ]
 
 ##  put this in DatabaseSeeder run function
-$this->call([UsersTableSeeder::class,]);
+$this->call(SiteSettingsTableSeeder::class);
+$this->call(UsersTableSeeder::class);
+$this->call(BlogCategoriesTableSeeder::class);
+$this->call(BlogsTableSeeder::class);
+$this->call(ExtrasTableSeeder::class);
+$this->call(TestimonialsTableSeeder::class);
+
+## then run
+<strong>$ php artisan migrate && php artisan db:seed</strong>
 
 then run localhost:8000
 

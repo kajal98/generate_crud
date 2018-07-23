@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.layouts.panel')
 @section('title','Inquiry Detail')
 @section('content')
 <div class="min-height-200px">
@@ -9,7 +9,7 @@
                 <h4 class="text-blue">{!! title_case($inquiry->full_name) !!}'s Inquiry</h4>
             </div>  
             <div class="pull-right">
-                <a href="{!! route('inquiry.index') !!}" class="btn btn-primary btn-sm" rel="content-y"  role="button"><i class="fa fa-arrow-left"></i> Back</a>
+                <a href="{!! route('inquiry.index') !!}" class="btn btn-sm btn-primary btn-sm" rel="content-y"  role="button"><i class="fa fa-arrow-left"></i> Back</a>
             </div>
         </div>
         <div class="table-responsive">
