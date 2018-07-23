@@ -9,7 +9,7 @@
 				<h4 class="text-blue">{!! title_case($case_study->title) !!}</h4>
 			</div>	
 			<div class="pull-right">
-                <a href="/admin/case_studies" class="btn btn-primary btn-sm" rel="content-y"  role="button"><i class="fa fa-arrow-left"></i> Back</a>
+                <a href="{!! route('case_studies.index') !!}" class="btn btn-primary btn-sm" rel="content-y"  role="button"><i class="fa fa-arrow-left"></i> Back</a>
             </div>
 		</div>
 		<div class="table-responsive">

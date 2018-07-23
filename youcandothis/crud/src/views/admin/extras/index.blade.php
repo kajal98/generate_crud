@@ -9,7 +9,7 @@
 				<h4 class="text-blue">Extra Pages</h4>
 			</div>
 			<div class="pull-right">
-				<a href="/admin/extra/create" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add Extra Page</a>
+				<a href="{!! route('extra.create') !!}" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add Extra Page</a>
 			</div>
 		</div>
 		<div class="table-responsive">

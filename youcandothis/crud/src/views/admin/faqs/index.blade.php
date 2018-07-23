@@ -9,7 +9,7 @@
 				<h4 class="text-blue">Faqs</h4>
 			</div>
 			<div class="pull-right">
-				<a href="/admin/faq/create" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add FAQ</a>
+				<a href="{!! route('faq.create') !!}" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add FAQ</a>
 			</div>
 		</div>
 		<div class="table-responsive">

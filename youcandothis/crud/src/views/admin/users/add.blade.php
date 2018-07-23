@@ -10,7 +10,7 @@
                 <p class="mb-30 font-14"></p>
             </div>
             <div class="pull-right">
-                <a href="/admin/users" class="btn btn-primary btn-sm" rel="content-y"  role="button"><i class="fa fa-arrow-left"></i> Back</a>
+                <a href="{!! route('users.index') !!}" class="btn btn-primary btn-sm" rel="content-y"  role="button"><i class="fa fa-arrow-left"></i> Back</a>
             </div>
         </div>
         <form role="form" action="/admin/users" role="form" method="post" class="login-form">

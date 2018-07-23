@@ -26,7 +26,10 @@
                         </div>
                     </div>
                     <div class="col-sm-6">
-                        <div class="forgot-password padding-top-10"><a href="#">Forgot Password</a></div>
+                        <div class="input-group"><a href="{!! route('register') !!}" class="btn btn-outline-primary btn-lg btn-block">Register</a></div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="input-group"><a href="{!! route('password.request') !!}" class="btn btn-outline-primary btn-lg btn-block">Forgot Password</a></div>
                     </div>
                 </div>
             </form>

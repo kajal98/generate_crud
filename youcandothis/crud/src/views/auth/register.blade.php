@@ -50,11 +50,14 @@
                 </span>
                 @endif
             </div>
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-4">
-                    <button type="submit" class="btn btn-primary">
-                        Register
-                    </button>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="input-group">
+                        <button type="submit" class="btn btn-outline-primary btn-lg btn-block">Register</button>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="input-group"><a href="{!! route('login') !!}" class="btn btn-outline-primary btn-lg btn-block">Login</a></div>
                 </div>
             </div>
         </form>

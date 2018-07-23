@@ -9,7 +9,7 @@
                 <h4 class="text-blue">{!! title_case($extra->title) !!}</h4>
             </div>  
             <div class="pull-right">
-                <a href="/admin/extra" class="btn btn-primary btn-sm" rel="content-y"  role="button"><i class="fa fa-arrow-left"></i> Back</a>
+                <a href="{!! route('extra.index') !!}" class="btn btn-primary btn-sm" rel="content-y"  role="button"><i class="fa fa-arrow-left"></i> Back</a>
             </div>
         </div>
         <div class="table-responsive">

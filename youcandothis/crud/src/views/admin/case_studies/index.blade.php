@@ -9,7 +9,7 @@
 				<h4 class="text-blue">Case Studies</h4>
 			</div>
 			<div class="pull-right">
-				<a href="/admin/case_studies/create" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add Case Study</a>
+				<a href="{!! route('case_studies.create') !!}" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add Case Study</a>
 			</div>
 		</div>
 		<div class="table-responsive">

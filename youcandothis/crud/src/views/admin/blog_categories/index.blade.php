@@ -9,7 +9,7 @@
 				<h4 class="text-blue">Blog Categories</h4>
 			</div>
 			<div class="pull-right">
-				<a href="/admin/blog_categories/create" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add Blog Category</a>
+				<a href="{!! route('blog_categories.create') !!}" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add Blog Category</a>
 			</div>
 		</div>
 		<div class="table-responsive">

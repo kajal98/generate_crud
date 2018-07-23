@@ -1,52 +1,28 @@
 @extends('layouts.admin')
 @section('title','Faq Detail')
 @section('content')
-<section class="content-header">
-    <h3>Faq Detail</h3>
-</section>
-<div class="content">
-    <div class="container-fluid container-fixed bg-white">
-        <div class="panel panel-transparent">
-            <div class="container-fluid">
-                <div class="row add_user_profile_pic">
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-sm-10">
-                                <div class="form-horizontal" >
-                                    <div class="form-group">
-                                        <label class="col-sm-4">Question:</label>
-                                        <div class="col-sm-8">
-                                            <label>{!! $faq->question !!}</label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-4">Answer:</label>
-                                        <div class="col-sm-8">
-                                            <label>{!! $faq->answer !!}</label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-4">Status:</label>
-                                        <div class="col-sm-8">
-                                            <label>{!! $faq->status ? "Open" : "Close" !!}</label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="form-group">
-                                            <label class="col-sm-4">Faq Updated On:</label>
-                                            <div class="col-sm-8">
-                                                <label>{!!$faq->updated_at!!}</label>
-                                            </div>
-                                        </div>
-                                    </div>                       
-                                </div>
-                                <button class="btn btn-primary" ><a style="color: white;" href="{!! route('faq.index') !!}">Back</a></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<div class="min-height-200px">
+    <!-- Contextual classes Start -->
+    <div class="pd-20 bg-white border-radius-4 box-shadow mb-30">
+        <div class="clearfix mb-20">
+            <div class="pull-left">
+                <h4 class="text-blue">Faq Detail</h4>
+            </div>  
+            <div class="pull-right">
+                <a href="{!! route('faq.index') !!}" class="btn btn-primary btn-sm" rel="content-y"  role="button"><i class="fa fa-arrow-left"></i> Back</a>
             </div>
         </div>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tbody>
+                    <tr><th>Question</th><td>{!! $faq->question !!}</td></tr>                                       
+                    <tr><th>Answer</th><td>{!! $faq->answer !!}</td></tr>
+                    <tr><th>Status</th><td>{!! $faq->status ? "Open" : "Close" !!}</td></tr>
+                    <tr><th>Faq Updated On</th><td>{!!$faq->updated_at!!}</td></tr>
+                </tbody>
+            </table>
+        </div>
     </div>
+    <!-- Contextual classes End -->
 </div>
 @endsection

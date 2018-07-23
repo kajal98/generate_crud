@@ -10,7 +10,7 @@
 				<h4 class="text-blue">Blogs</h4>
 			</div>
 			<div class="pull-right">
-				<a href="/admin/blogs/create" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add Blog</a>
+				<a href="{!! route('blogs.create') !!}" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add Blog</a>
 			</div>
 		</div>
 		<div class="table-responsive">

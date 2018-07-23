@@ -9,7 +9,7 @@
 				<h4 class="text-blue">Testimonials</h4>
 			</div>
 			<div class="pull-right">
-				<a href="/admin/testimonial/create" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add Testimonial</a>
+				<a href="{!! route('testimonial.create') !!}" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add Testimonial</a>
 			</div>
 		</div>
 		<div class="table-responsive">
@@ -28,7 +28,13 @@
 					<tr>
 						<td>{!! title_case($testimonial->name) !!}</td>
 						<td>{!! title_case($testimonial->designation) !!}</td>
-						<td>{!! $testimonial->status ? "Yes" : "No" !!}</td>
+						<td>
+							@if($testimonial->status)
+							<button class="btn btn-success">Yes</button>
+							@else
+							<button class="btn btn-danger">No</button>
+							@endif
+						</td>
 						<td>
 							<a href="{!!route('testimonial.show',['id'=>$testimonial->id])!!}" class="btn btn-warning"><i class="fa fa-eye"></i></a>
 							<a href="{!!route('testimonial.edit',['id'=>$testimonial->id])!!}" class="btn btn-success"><i class="fa fa-pencil"></i></a>

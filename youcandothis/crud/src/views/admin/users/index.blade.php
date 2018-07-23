@@ -9,7 +9,7 @@
 				<h4 class="text-blue">Users</h4>
 			</div>
 			<div class="pull-right">
-				<a href="/admin/users/create" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add User</a>
+				<a href="{!! route('users.create') !!}" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button"><i class="fa fa-plus"></i> Add User</a>
 			</div>
 		</div>
 		<div class="table-responsive">

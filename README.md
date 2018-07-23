@@ -51,6 +51,9 @@ and this in aliases array
     "app/helpers.php"
 ]
 
+##  put this in DatabaseSeeder run function
+$this->call([UsersTableSeeder::class,]);
+
 then run localhost:8000
 
 Have fun..!!!!!

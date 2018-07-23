@@ -1,16 +1,16 @@
 @extends('layouts.admin')
-@section('title','Edit Blog Category')
+@section('title','Add Blog Category')
 @section('content')
 <div class="min-height-200px">
     <!-- Default Basic Forms Start -->
     <div class="pd-20 bg-white border-radius-4 box-shadow mb-30">
         <div class="clearfix">
             <div class="pull-left">
-                <h4 class="text-blue">Add New Blog Category</h4>
+                <h4 class="text-blue">Add Blog Category</h4>
                 <p class="mb-30 font-14"></p>
             </div>
             <div class="pull-right">
-                <a href="/admin/users" class="btn btn-primary btn-sm" rel="content-y"  role="button"><i class="fa fa-arrow-left"></i> Back</a>
+                <a href="{!! route('blog_categories.index') !!}" class="btn btn-primary btn-sm" rel="content-y"  role="button"><i class="fa fa-arrow-left"></i> Back</a>
             </div>
         </div>
         {!! Former::horizontal_open()->action( URL::route("blog_categories.store") )->method('POST')->class('p-t-15')->role('form')->id('form') !!}
