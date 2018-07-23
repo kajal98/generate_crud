@@ -36,10 +36,8 @@
                     <option value="{!! $blog->id !!}">{!! $blog->name !!}</option>
                     @endforeach
                 </select>
+                <br /><br /><a href="{!! route('blog_categories.create') !!}" class="btn btn-sm btn-info">Add New Blog Category</a>
                 @if($errors->has('blog_category_id'))<p class="help-block">{!! $errors->first('blog_category_id') !!}</p>@endif
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4">
-                <a href="{!! route('blog_categories.create') !!}">Add New Blog Category</a>
             </div>
         </div>
         <div class="form-group row">
