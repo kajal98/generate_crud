@@ -88,4 +88,4 @@ Have fun..!!!!!
 <strong>FAQs</strong>![13](https://user-images.githubusercontent.com/18494848/42442365-1cb69e20-8388-11e8-914c-3578c14fcd9d.png)<br />
 <strong>Testimonials</strong>![14](https://user-images.githubusercontent.com/18494848/42442364-1c7044e8-8388-11e8-8182-eb64f43a7dff.png)<br />
 <strong>Forgot Password</strong>![15](https://user-images.githubusercontent.com/18494848/43072103-88807382-8e92-11e8-9b24-59fccc7e9163.png)<br />
-<strong>Reset Password</strong>![16](https://user-images.githubusercontent.com/18494848/43071959-08d09248-8e92-11e8-8ec3-b29939ccaa52.png)
+<strong>Reset Password</strong>![16](https://user-images.githubusercontent.com/18494848/43072188-de15b5d2-8e92-11e8-97fd-74cafaeb19a9.png)
