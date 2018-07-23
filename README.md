@@ -1,4 +1,4 @@
-# Clone the repository and get readymate admin panel
+# Clone the repository and get readymade admin panel
 
 ## move to your directory
 <strong>$ cd blog</strong>
