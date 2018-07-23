@@ -86,4 +86,6 @@ Have fun..!!!!!
 <strong>Extra Pages</strong>![11](https://user-images.githubusercontent.com/18494848/42442366-1cfc9a06-8388-11e8-803f-f6ad958eb65e.png)<br />
 <strong>Edit Extra Pages</strong>![12](https://user-images.githubusercontent.com/18494848/42442460-54df763c-8388-11e8-9c6a-66a3d295e8fe.png)<br />
 <strong>FAQs</strong>![13](https://user-images.githubusercontent.com/18494848/42442365-1cb69e20-8388-11e8-914c-3578c14fcd9d.png)<br />
-<strong>Testimonials</strong>![14](https://user-images.githubusercontent.com/18494848/42442364-1c7044e8-8388-11e8-8182-eb64f43a7dff.png)
+<strong>Testimonials</strong>![14](https://user-images.githubusercontent.com/18494848/42442364-1c7044e8-8388-11e8-8182-eb64f43a7dff.png)<br />
+<strong>Forgot Password</strong>![15](https://user-images.githubusercontent.com/18494848/43071960-09353ef0-8e92-11e8-93f5-c74738858b42.png)<br />
+<strong>Reset Password</strong>![16](https://user-images.githubusercontent.com/18494848/43071959-08d09248-8e92-11e8-8ec3-b29939ccaa52.png)
