@@ -15,7 +15,7 @@
 		</div>
 		<div class="table-responsive">
 						@if(count($blogs) > 0)
-						<table class="table table-striped">
+						<table class="table table-striped" id="myTable">
 						<thead>
 							<tr>
 								<th scope="col">Image</th>
@@ -56,7 +56,11 @@
 									<button class="btn btn-sm btn-danger">No</button>
 									@endif
 								</td>
-								<td><a href="{!!route('blogs.show',['id'=>$blog->id])!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a> <a href="{!!route('blogs.edit',['id'=>$blog->id])!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a> <a href="{!!route('blogs.destroy',['id'=>$blog->id])!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a></td>
+								<td>
+									<a href="{!!route('blogs.show',['id'=>$blog->id])!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
+									<a href="{!!route('blogs.edit',['id'=>$blog->id])!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>
+									<a href="{!!route('blogs.destroy',['id'=>$blog->id])!!}" class="btn btn-sm btn-danger" data-confirm="Are you sure want to delete?"><i class="fa fa-trash"></i></a>
+								</td>
 							</tr>
 							
 							@endforeach
@@ -66,8 +70,15 @@
 					@else
 							<p>No Blog Found.</p>
 							@endif
-					<div class="pull-right">{{ $blogs->links() }}</div>	
 				</div>
 			</div>	
 	</div>
 	@endsection
+	@section('scripts')
+	<script type="text/javascript">
+		$(document).ready( function () {
+		    $('#myTable').DataTable(
+		    	{"pageLength": 10});
+		} );
+	</script>
+	@endsection	

@@ -14,7 +14,7 @@
 		</div>
 		<div class="table-responsive">
 			@if(count($blog_categories) > 0)
-			<table class="table table-striped"  id="blog_categories" class="display" cellspacing="0" width="100%">
+			<table class="table table-striped"  id="myTable" class="display" cellspacing="0" width="100%">
 				<thead>
 					<tr>
 						<th scope="col">Name</th>
@@ -25,7 +25,10 @@
 					@foreach($blog_categories as $blog_category)
 					<tr>													
 						<td>{!! $blog_category->name !!}</td>
-						<td><a href="{!!route('blog_categories.edit',['id'=>$blog_category->id])!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a> <a href="{!!route('blog_categories.destroy',['id'=>$blog_category->id])!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a></td>
+						<td>
+							<a href="{!!route('blog_categories.edit',['id'=>$blog_category->id])!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>
+							<a href="{!!route('blog_categories.destroy',['id'=>$blog_category->id])!!}" class="btn btn-sm btn-danger" data-confirm="Are you sure want to delete?"><i class="fa fa-trash"></i></a>
+						</td>
 					</tr>
 					@endforeach
 				</tbody>
@@ -33,8 +36,15 @@
 			@else
 			<p>No Blog Category Found.</p>
 			@endif
-			<div class="pull-right">{{ $blog_categories->links() }}</div>	
 		</div>
 	</div>
 </div>
 @endsection
+@section('scripts')
+<script type="text/javascript">
+	$(document).ready( function () {
+	    $('#myTable').DataTable(
+	    	{"pageLength": 10});
+	} );
+</script>
+@endsection	

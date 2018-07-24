@@ -15,7 +15,7 @@
 		</div>
 		<div class="table-responsive">
 			@if($users->count() > 0)
-			<table class="table table-striped">
+			<table class="table table-striped" id="myTable">
 				<thead>
 					<tr>
 						<th scope="col">#</th>
@@ -40,7 +40,11 @@
 								<button class="btn btn-sm btn-danger">No</button>
 								@endif
 							</td>
-							<td><a href="{!!route('users.show',['id'=>$user->id])!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a> <a href="{!!route('users.edit',['id'=>$user->id])!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a> <a href="{!!route('users.destroy',['id'=>$user->id])!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a></td>
+							<td>
+								<a href="{!!route('users.show',['id'=>$user->id])!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
+								<a href="{!!route('users.edit',['id'=>$user->id])!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>
+								<a href="{!!route('users.destroy',['id'=>$user->id])!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash" data-confirm="Are you sure want to delete?"></i></a>
+							</td>
 						</tr>
 					@endforeach						 
 				</tbody>
@@ -52,4 +56,12 @@
 	</div>
 	<!-- Contextual classes End -->
 </div>
+@endsection
+@section('scripts')
+<script type="text/javascript">
+	$(document).ready( function () {
+	    $('#myTable').DataTable(
+	    	{"pageLength": 10});
+	} );
+</script>
 @endsection

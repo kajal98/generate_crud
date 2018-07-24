@@ -3,7 +3,7 @@
 <div class="login-wrap customscroll d-flex align-items-center flex-wrap justify-content-center pd-20">
     <div class="login-box bg-white box-shadow pd-30 border-radius-5">
         <img src="{!! asset('/images/login-img.png') !!}" alt="login" class="login-img">
-        <h2 class="text-center mb-30">Reset Password</h2>
+        <h2 class="text-center mb-30">Forgot Password</h2>
         <div class="panel-body">
             @if (session('status'))
             <div class="alert alert-success">

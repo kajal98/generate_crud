@@ -11,7 +11,7 @@ class BlogCategoryController extends Controller
 {
   public function index()
   {
-    $blog_categories = BlogCategory::paginate(10);
+    $blog_categories = BlogCategory::orderBy('name')->get();
     return view('admin.blog_categories.index',compact('blog_categories'));
   }
   public function create()

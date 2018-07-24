@@ -30,7 +30,7 @@
 						<td>
 							<a href="{!!route('extra.show',['id'=>$extra->id])!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
 							<a href="{!!route('extra.edit',['id'=>$extra->id])!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>
-							<a href="{!!route('extra.destroy',['id'=>$extra->id])!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+							<a href="{!!route('extra.destroy',['id'=>$extra->id])!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash" data-confirm="Are you sure want to delete?"></i></a>
 						</td>
 					</tr>
 					@endforeach
@@ -39,8 +39,15 @@
 			@else
 			<p>No Extras Found.</p>
 			@endif
-			<div class="pull-right">{{ $extras->links() }}</div>	
 		</div>
 	</div>
 </div>
+@endsection
+@section('scripts')
+<script type="text/javascript">
+	$(document).ready( function () {
+	    $('#extras').DataTable(
+	    	{"pageLength": 10});
+	} );
+</script>
 @endsection

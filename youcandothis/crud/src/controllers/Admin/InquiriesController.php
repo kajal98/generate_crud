@@ -13,7 +13,7 @@ class InquiriesController extends Controller
 {
   public function index()
   {
-    $inquiries = Inquiry::paginate(10);
+    $inquiries = Inquiry::orderBy('created_at')->get();
     return view('admin.inquiries.index',compact('inquiries'));
   }
 

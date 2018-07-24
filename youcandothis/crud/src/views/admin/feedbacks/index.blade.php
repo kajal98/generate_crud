@@ -36,7 +36,7 @@
 						</td>
 						<td>
 							<a href="{!!route('feedback.show',['id'=>$feedback->id])!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
-							<a href="{!!route('feedback.destroy',['id'=>$feedback->id])!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+							<a href="{!!route('feedback.destroy',['id'=>$feedback->id])!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash" data-confirm="Are you sure want to delete?"></i></a>
 						</td>
 					</tr>
 					@endforeach
@@ -45,8 +45,15 @@
 			@else
 			<p>No Feedbacks Found.</p>
 			@endif
-			<div class="pull-right">{{ $feedbacks->links() }}</div>	
 		</div>
 	</div>
 </div>
+@endsection
+@section('scripts')
+<script type="text/javascript">
+	$(document).ready( function () {
+	    $('#feedbacks').DataTable(
+	    	{"pageLength": 10});
+	} );
+</script>
 @endsection

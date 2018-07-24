@@ -13,7 +13,7 @@ class FeedbacksController extends Controller
 {
   public function index()
   {
-    $feedbacks = Feedback::paginate(10);
+    $feedbacks = Feedback::orderBy('created_at')->get();
     return view('admin.feedbacks.index',compact('feedbacks'));
   }
 

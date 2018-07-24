@@ -11,7 +11,7 @@
                 <div class="input-group custom input-group-lg">
                     <input id="email" type="email"  placeholder="Email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
                     <div class="input-group-append custom">
-                        <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></span>
+                        <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
                     </div>
                     @if ($errors->has('email'))
                     <span class="help-block">

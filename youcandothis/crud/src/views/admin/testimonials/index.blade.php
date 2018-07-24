@@ -38,7 +38,7 @@
 						<td>
 							<a href="{!!route('testimonial.show',['id'=>$testimonial->id])!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
 							<a href="{!!route('testimonial.edit',['id'=>$testimonial->id])!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>
-							<a href="{!!route('testimonial.destroy',['id'=>$testimonial->id])!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+							<a href="{!!route('testimonial.destroy',['id'=>$testimonial->id])!!}" class="btn btn-sm btn-danger" data-confirm="Are you sure want to delete?"><i class="fa fa-trash"></i></a>
 						</td>
 					</tr>
 					@endforeach
@@ -47,9 +47,16 @@
 			@else
 			<p>No Testimonials Found.</p>
 			@endif
-			<div class="pull-right">{{ $testimonials->links() }}</div>	
 		</div>
 	</div>
 </div>
 </div>
+@endsection
+@section('scripts')
+<script type="text/javascript">
+	$(document).ready( function () {
+	    $('#testimonials').DataTable(
+	    	{"pageLength": 10});
+	} );
+</script>
 @endsection

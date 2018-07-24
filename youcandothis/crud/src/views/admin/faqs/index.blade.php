@@ -30,7 +30,7 @@
 						<td>
 							<a href="{!!route('faq.show',['id'=>$faq->id])!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
 							<a href="{!!route('faq.edit',['id'=>$faq->id])!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>
-							<a href="{!!route('faq.destroy',['id'=>$faq->id])!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+							<a href="{!!route('faq.destroy',['id'=>$faq->id])!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash" data-confirm="Are you sure want to delete?"></i></a>
 						</td>
 					</tr>
 					@endforeach
@@ -39,10 +39,15 @@
 			@else
 			<p>No Faqs Found.</p>
 			@endif
-
-			<div class="pull-right">{{ $faqs->links() }}</div>	
 		</div>
 	</div>
-
 </div>
+@endsection
+@section('scripts')
+<script type="text/javascript">
+	$(document).ready( function () {
+	    $('#faqs').DataTable(
+	    	{"pageLength": 10});
+	} );
+</script>
 @endsection

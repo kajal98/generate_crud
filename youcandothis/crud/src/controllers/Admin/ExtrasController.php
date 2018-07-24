@@ -13,7 +13,7 @@ class ExtrasController extends Controller
 {
   public function index()
   {
-    $extras = Extra::paginate(10);
+    $extras = Extra::orderBy('created_at')->get();
     return view('admin.extras.index',compact('extras'));
   }
 
