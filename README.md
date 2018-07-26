@@ -28,6 +28,9 @@ then put this line to your config/app.php file in providers array
 <strong>Youcandothis\Crud\CrudServiceProvider::class,</strong>
 <strong>Intervention\Image\ImageServiceProvider::class,</strong>
 
+and this in aliases array
+<strong>'Image' => Intervention\Image\Facades\Image::class,</strong>
+
 ## Clear the cache
 <strong>$ php artisan config:cache</strong>
 
@@ -42,8 +45,8 @@ then put this line to your config/app.php file in providers array
 ## Finaly publish the provider
 <strong>$ php artisan vendor:publish --provider="Youcandothis\Crud\CrudServiceProvider"</strong>
 
-and this in aliases array
-<strong>'Image' => Intervention\Image\Facades\Image::class,</strong>
+## copy routes from below file
+<strong>vendor/kajalpandya/youcandothis/crud/src/web.php</strong>
 
 ## Register middleware in app\Http\Kernel.php in $routeMiddleware group
 <strong>'admin' => \App\Http\Middleware\AdminOnly::class,</strong>
