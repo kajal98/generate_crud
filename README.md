@@ -40,8 +40,6 @@ and this in aliases array
 ## Clear the cache again
 <strong>$ php artisan config:cache</strong>
 
-
-
 ## Finaly publish the provider
 <strong>$ php artisan vendor:publish --provider="Youcandothis\Crud\CrudServiceProvider"</strong>
 
@@ -67,6 +65,8 @@ $this->call(TestimonialsTableSeeder::class);
 
 ## then run
 <strong>$ php artisan migrate && php artisan db:seed</strong>
+
+## make tmp folder in public
 
 then run localhost:8000
 
