@@ -72,6 +72,9 @@ then run localhost:8000
 
 Have fun..!!!!!
 
+# clone direct repository from below url
+<strong>https://github.com/kajal98/laravel-ready-admin-panel</strong>
+
 ## Screenshots
 
 <strong>Register</strong>
