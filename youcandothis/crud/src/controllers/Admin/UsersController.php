@@ -27,8 +27,8 @@ class UsersController extends Controller
     'email' => 'required|email|unique:users',
     'password' => 'required|confirmed',
     'password_confirmation' => 'required',
-    'phone' => 'required',
-    'mobile' => 'required',
+    'phone' => 'required|numeric',
+    'mobile' => 'required|numeric',
     'address' => 'required',
     'city' => 'required',
     'state' => 'required',
@@ -54,7 +54,7 @@ class UsersController extends Controller
       $user->phone = $request->get('phone');
       $user->mobile = $request->get('mobile');
       $user->save();
-      return redirect()->route('users.index')->withSuccess("Insert record successfully.");
+      return redirect()->route('users.index')->withSuccess("Interviewer created successfully.");
     
   }
   public function edit($id)
@@ -83,7 +83,7 @@ class UsersController extends Controller
     {
       $user=User::find($id);
       $user->update($request->all());
-      return redirect()->route('users.index')->withSuccess('Record updated successfully');
+      return redirect()->route('users.index')->withSuccess('Interviewer details updated successfully');
     }
     catch(\Exception $e)
     {
@@ -102,7 +102,7 @@ class UsersController extends Controller
     {
       $user = User::find($id);
       $user->delete();
-      return redirect()->route('users.index')->withSuccess('Deleted successfully');
+      return redirect()->route('users.index')->withSuccess('Interviewer deleted successfully');
     }
     catch(\Exception $e)
     {
@@ -163,7 +163,7 @@ class UsersController extends Controller
         }
         $user = User::find(Auth::user()->id);
         $user->update($request->all());
-        return redirect()->to('portal/settings')->with('success','Profile updated successfully');
+        return redirect()->to('portal/settings')->with('success','Interviewer profile updated successfully');
     }
 
     public function getChangePassword()

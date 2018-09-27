@@ -31,6 +31,10 @@ then put this line to your config/app.php file in providers array
 and this in aliases array
 <strong>'Image' => Intervention\Image\Facades\Image::class,</strong>
 
+## Remove below files
+<strong>database/migrations</strong>
+<strong>database/seeds</strong>
+
 ## Clear the cache
 <strong>$ php artisan config:cache</strong>
 
