@@ -4,6 +4,9 @@ A ready-made admin panel (users, blogs, blog categories, FAQs, testimonials, ext
 
 **Requires:** PHP 8.3+ and Laravel 13.
 
+> [!WARNING]
+> **Security fix in v3.0.1.** Versions up to v3.0.0 published `public/plupload/upload.php`, which lets anyone upload files to your server without logging in. If you ever ran `php artisan vendor:publish --tag=crud`, delete `public/plupload/upload.php` from your app now. Upgrading the package alone does not remove the copy that was already published.
+
 ## Install
 
 Start from a fresh Laravel 13 app with your database configured in `.env`:
