@@ -4,10 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Inquiry;
-use Validator;
-use Former;
-use Mail;
+use App\Models\Inquiry;
 
 class InquiriesController extends Controller
 {

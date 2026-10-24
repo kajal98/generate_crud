@@ -1,15 +1,14 @@
 <?php
 namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 use Former\Facades\Former;
-use App\User;
-use App\Blog;
-use App\SiteSetting;
-use App\Feedback;
-use App\Inquiry;
-use Validator;
+use App\Models\User;
+use App\Models\Blog;
+use App\Models\SiteSetting;
+use App\Models\Feedback;
+use App\Models\Inquiry;
 
 class DashboardController extends Controller
 {

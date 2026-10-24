@@ -2,11 +2,9 @@
 namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\BlogCategory;
-use Validator;
-use Former;
-use Mail;
-use Hash;
+use Illuminate\Support\Facades\Validator;
+use Former\Facades\Former;
+use App\Models\BlogCategory;
 class BlogCategoryController extends Controller
 {
   public function index()

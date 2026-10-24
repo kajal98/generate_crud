@@ -2,12 +2,10 @@
 namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Blog;
-use App\BlogCategory;
-use Validator;
-use Former;
-use Mail;
-use Hash;
+use Illuminate\Support\Facades\Validator;
+use Former\Facades\Former;
+use App\Models\Blog;
+use App\Models\BlogCategory;
 class BlogController extends Controller
 {
   public function index()
@@ -46,8 +44,8 @@ class BlogController extends Controller
       $blog->author=$request->get('author');
       $blog->blog_category_id= $request->get('blog_category_id');
       $blog->image = $request->get('image');
-      $blog->publish=$request->get('publish');
-      $blog->is_archive=$request->get('is_archive');
+      $blog->publish=$request->get('publish', 0);
+      $blog->is_archive=$request->get('is_archive', 0);
       $blog->meta_title=$request->get('meta_title');
       $blog->meta_keyword=$request->get('meta_keyword');
       $blog->meta_description=$request->get('meta_description');

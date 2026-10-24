@@ -41,9 +41,9 @@
 								@endif
 							</td>
 							<td>
-								<a href="{!!route('users.show',['id'=>$user->id])!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
-								<a href="{!!route('users.edit',['id'=>$user->id])!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>
-								<a href="{!!route('users.destroy',['id'=>$user->id])!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash" data-confirm="Are you sure want to delete?"></i></a>
+								<a href="{!!route('users.show', $user->id)!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
+								<a href="{!!route('users.edit', $user->id)!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>
+								<a href="{!!route('users.destroy', $user->id)!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash" data-confirm="Are you sure want to delete?"></i></a>
 							</td>
 						</tr>
 					@endforeach						 

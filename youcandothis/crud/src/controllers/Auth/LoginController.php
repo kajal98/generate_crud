@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-class LoginController extends Controller
+class LoginController extends Controller implements HasMiddleware
 {
     /*
     |--------------------------------------------------------------------------
@@ -28,16 +30,17 @@ class LoginController extends Controller
     protected $redirectTo = '/admin';
 
     /**
-     * Create a new controller instance.
-     *
-     * @return void
+     * Get the middleware that should be assigned to the controller.
      */
-    public function __construct()
+    public static function middleware(): array
     {
-        $this->middleware('guest')->except('logout');
+        return [
+            new Middleware('guest', except: ['logout']),
+            new Middleware('auth', only: ['logout']),
+        ];
     }
 
-    public function authenticated( \Illuminate\Http\Request $request, \App\User $user ) {
+    public function authenticated( \Illuminate\Http\Request $request, \App\Models\User $user ) {
         return redirect('/admin')->with('success', "You have been logged in.");
     }
     

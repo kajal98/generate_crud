@@ -26,8 +26,8 @@
 					<tr>													
 						<td>{!! $blog_category->name !!}</td>
 						<td>
-							<a href="{!!route('blog_categories.edit',['id'=>$blog_category->id])!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>
-							<a href="{!!route('blog_categories.destroy',['id'=>$blog_category->id])!!}" class="btn btn-sm btn-danger" data-confirm="Are you sure want to delete?"><i class="fa fa-trash"></i></a>
+							<a href="{!!route('blog_categories.edit', $blog_category->id)!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>
+							<a href="{!!route('blog_categories.destroy', $blog_category->id)!!}" class="btn btn-sm btn-danger" data-confirm="Are you sure want to delete?"><i class="fa fa-trash"></i></a>
 						</td>
 					</tr>
 					@endforeach

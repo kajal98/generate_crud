@@ -26,8 +26,8 @@
 				<tbody>
 					@foreach($testimonials as $testimonial)
 					<tr>
-						<td>{!! title_case($testimonial->name) !!}</td>
-						<td>{!! title_case($testimonial->designation) !!}</td>
+						<td>{!! \Illuminate\Support\Str::title($testimonial->name) !!}</td>
+						<td>{!! \Illuminate\Support\Str::title($testimonial->designation) !!}</td>
 						<td>
 							@if($testimonial->status)
 							<button class="btn btn-sm btn-success">Yes</button>
@@ -36,9 +36,9 @@
 							@endif
 						</td>
 						<td>
-							<a href="{!!route('testimonial.show',['id'=>$testimonial->id])!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
-							<a href="{!!route('testimonial.edit',['id'=>$testimonial->id])!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>
-							<a href="{!!route('testimonial.destroy',['id'=>$testimonial->id])!!}" class="btn btn-sm btn-danger" data-confirm="Are you sure want to delete?"><i class="fa fa-trash"></i></a>
+							<a href="{!!route('testimonial.show', $testimonial->id)!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
+							<a href="{!!route('testimonial.edit', $testimonial->id)!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>
+							<a href="{!!route('testimonial.destroy', $testimonial->id)!!}" class="btn btn-sm btn-danger" data-confirm="Are you sure want to delete?"><i class="fa fa-trash"></i></a>
 						</td>
 					</tr>
 					@endforeach

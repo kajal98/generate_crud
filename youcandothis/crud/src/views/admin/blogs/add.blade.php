@@ -32,7 +32,7 @@
             <label class="col-sm-12 col-md-2 col-form-label">Category</label>
             <div class="col-sm-12 col-md-10">
                 <select class="form-control selectpicker" name="blog_category_id" style="margin-left: 16px;">
-                    @foreach(App\BlogCategory::all() as $blog)
+                    @foreach(App\Models\BlogCategory::all() as $blog)
                     <option value="{!! $blog->id !!}">{!! $blog->name !!}</option>
                     @endforeach
                 </select>

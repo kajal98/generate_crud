@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Testimonial;
-use Validator;
-use Former;
-use Mail;
+use Illuminate\Support\Facades\Validator;
+use Former\Facades\Former;
+use App\Models\Testimonial;
 
 class TestimonialsController extends Controller
 {
@@ -43,7 +42,7 @@ class TestimonialsController extends Controller
       $testimonial->name=$request->get('name');
       $testimonial->designation=$request->get('designation');
       $testimonial->text=$request->get('text');
-      $testimonial->status=$request->get('status');
+      $testimonial->status=$request->get('status', 0);
       $testimonial->save();
       return redirect()->route('testimonial.index')->withSuccess("Insert record successfully.");
 
@@ -85,7 +84,7 @@ class TestimonialsController extends Controller
     }
     catch(\Exception $e)
     {
-      dd($e->message);
+      
       return redirect()->route('testimonial.index')->withError('Something went wrong, Please try after sometime.');
     }       
   }
