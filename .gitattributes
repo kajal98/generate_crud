@@ -1,0 +1,8 @@
+# Bundled third-party admin theme assets: keep them out of GitHub's language stats
+youcandothis/crud/src/public/** linguist-vendored
+
+# Keep the Composer download small
+/.gitattributes export-ignore
+/.gitignore export-ignore
+/.github export-ignore
+/CHANGELOG.md export-ignore
