@@ -1,96 +1,85 @@
 # Laravel Admin Panel (publish-and-own)
 
 [![Latest Version](https://img.shields.io/packagist/v/kajalpandya/generate_laravel_crud.svg)](https://packagist.org/packages/kajalpandya/generate_laravel_crud)
+[![Tests](https://github.com/kajal98/generate_crud/actions/workflows/tests.yml/badge.svg)](https://github.com/kajal98/generate_crud/actions/workflows/tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/kajalpandya/generate_laravel_crud.svg)](https://packagist.org/packages/kajalpandya/generate_laravel_crud)
-[![PHP](https://img.shields.io/packagist/dependency-v/kajalpandya/generate_laravel_crud/php.svg)](https://packagist.org/packages/kajalpandya/generate_laravel_crud)
 [![License](https://img.shields.io/packagist/l/kajalpandya/generate_laravel_crud.svg)](LICENSE)
 
-A ready-made admin panel for **Laravel 13**. One command copies the controllers, models, views, migrations and seeders into your app, so the code is yours to read and change. There's no runtime layer to work around.
+A ready-made admin panel for **Laravel 13**, built with **Blade** or **Livewire**. One command copies the controllers (or Livewire components), models, views, migrations and seeders into your app, so the code is yours to read and change.
 
 **You get:** admin login, users, blog with categories and slugs, FAQs, testimonials, extra pages, feedback, inquiries, site settings, and profile and password management.
 
 ```bash
 composer require kajalpandya/generate_laravel_crud
-php artisan vendor:publish --tag=crud
-echo "require __DIR__.'/crud.php';" >> routes/web.php
-php artisan migrate && php artisan db:seed --class=CrudSeeder
+php artisan crud:install
+php artisan migrate
+php artisan db:seed --class=CrudSeeder
 ```
 
-Open `/admin/login` and sign in with `admin@gmail.com` / `admin2018`.
+Open `/admin/login` and sign in with `admin@gmail.com` / `admin2018`. Change that password straight away.
 
 ![Dashboard](https://user-images.githubusercontent.com/18494848/42441533-0b282a68-8386-11e8-8a5d-e2abf16bb18b.png)
 
 **Requires:** PHP 8.3+ and Laravel 13.
 
-## Install
+## Choosing a stack
 
-Start from a fresh Laravel 13 app with your database configured in `.env`:
-
-```bash
-composer require kajalpandya/generate_laravel_crud
-```
-
-The service provider and the `admin` middleware are registered automatically.
-
-## Publish the panel
+`crud:install` asks which stack you want, or you can pass it directly:
 
 ```bash
-php artisan vendor:publish --tag=crud
+php artisan crud:install blade      # controllers + Blade views
+php artisan crud:install livewire   # Livewire 4 components, live search, no page reloads
 ```
 
-This copies:
+If Livewire isn't installed yet, the command runs `composer require livewire/livewire` for you.
 
-| Tag | What | Where |
+| | Blade | Livewire |
 | --- | --- | --- |
-| `crud-app` | controllers, models, routes | `app/Http/Controllers`, `app/Models`, `routes/crud.php` |
-| `crud-views` | Blade views | `resources/views` |
-| `crud-database` | migrations, seeders | `database/migrations`, `database/seeders` |
-| `crud-assets` | CSS, JS, fonts, images | `public` |
+| Pages | `app/Http/Controllers/Admin` | `app/Livewire/Admin` |
+| Views | `resources/views/admin` | `resources/views/livewire/admin` |
+| Lists | DataTables (client side) | Paginated, live search |
+| Rich text | CKEditor | Plain textarea |
+| Image upload | plupload to `/admin/upload` | Livewire file uploads |
 
-Existing files are never overwritten. Your app already has `app/Models/User.php`, so either publish with `--force` or add the panel's extra fields (`last_name`, `role`, `active`, `phone`, `mobile`, `address`, `city`, `state`, `country`, `pincode`) to your `User` model's `$fillable`.
+Both stacks share the models, seeders, layouts and URLs, and install `routes/crud.php`, which is loaded from `routes/web.php`.
 
-## Wire up the routes
+## What gets installed
 
-Add this line to the end of `routes/web.php`:
+* **Models:** `app/Models` (Blog, BlogCategory, Extra, Faq, Feedback, Inquiry, SiteSetting, Testimonial). Your `User` model is left alone; the panel doesn't rely on its `$fillable`.
+* **Migrations:** published with the current timestamp. One migration adds admin columns (`role`, `active`, `phone` and others) to Laravel's default `users` table.
+* **Seeders:** `database/seeders/CrudSeeder.php` and one seeder per table.
+* **Assets:** `public/vendor/crud`.
 
-```php
-require __DIR__.'/crud.php';
-```
+Existing files are never overwritten. The command lists any it skipped; run it with `--force` to replace them.
 
-## Migrate and seed
-
-The panel's migrations add columns to Laravel's default `users` table, so keep the default migrations.
+## Configuration
 
 ```bash
-php artisan migrate
-php artisan db:seed --class=CrudSeeder
+php artisan vendor:publish --tag=crud-config
 ```
 
-Then visit `/admin/login` and sign in with `admin@gmail.com` / `admin2018`. Change this password straight away.
-
-Create a `public/tmp` folder if you use image uploads.
-
-## Optional settings
+`config/crud.php` sets the admin roles, upload storage (local or S3) and the msg91 SMS key:
 
 | `.env` key | Used for |
 | --- | --- |
-| `MSG91_AUTH_KEY`, `MSG91_SENDER` | SMS on user activation (`send_message()`) |
-| `AWS_STATUS`, `AWS_S3_BUCKET`, `AWS_S3_HOST` | Store uploads on S3 (needs `aws/aws-sdk-php-laravel`) |
+| `CRUD_UPLOADS_S3`, `AWS_S3_BUCKET`, `AWS_S3_HOST` | Store uploads on S3 (needs `aws/aws-sdk-php-laravel`) |
+| `MSG91_AUTH_KEY`, `MSG91_SENDER` | SMS when a user is activated |
 
-## Generate views for an entity
+## Testing
 
 ```bash
-php artisan generate:crud Product --views
+composer test
 ```
 
-## Upgrading from v2 (Laravel 10)
+## Upgrading from v3
 
-* Models now live in `App\Models` (was `App\`).
-* Seeders live in `database/seeders` under `Database\Seeders`. `DatabaseSeeder` is now `CrudSeeder`.
-* The users migration now alters the default `users` table instead of replacing it. The `password_resets` migration is gone, because Laravel 13 ships `password_reset_tokens`.
-* The `admin` middleware comes from the package. Remove `App\Http\Middleware\AdminOnly` if you published it before.
-* `helpers.php` is autoloaded by the package. Remove the `app/helpers.php` entry from your `composer.json`.
-* `laravelcollective/html` and `spatie/laravel-newsletter` are no longer installed.
+* **Security:** v1–v3 published `public/plupload/upload.php`, which lets anyone upload files to your server without logging in. Delete `public/plupload/` from your app now, whether or not you upgrade.
+* Install with `php artisan crud:install blade` instead of `vendor:publish --tag=crud`. Run it with `--force` to replace the v3 files.
+* Assets moved from `public/css`, `public/js`, `public/images` and `public/fonts` to `public/vendor/crud`. Remove the old copies if nothing else in your app uses them.
+* The front-end `/login`, `/register` and password-reset pages (laravel/ui) are gone. They clashed with Laravel's starter kits. The admin panel keeps its own `/admin/login`.
+* Logout is now a POST request to `/admin/logout`.
+* The `/` route is no longer taken over by the panel.
+* The package namespace is now `KajalPandya\LaravelCrud`.
 
 ## Screenshots
 
