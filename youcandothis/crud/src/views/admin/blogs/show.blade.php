@@ -6,7 +6,7 @@
 	<div class="pd-20 bg-white border-radius-4 box-shadow mb-30">
 		<div class="clearfix mb-20">
 			<div class="pull-left">
-				<h4 class="text-blue">{!! title_case($blog->title) !!}</h4>
+				<h4 class="text-blue">{!! \Illuminate\Support\Str::title($blog->title) !!}</h4>
 			</div>	
 			<div class="pull-right">
                 <a href="{!! route('blogs.index') !!}" class="btn btn-sm btn-primary btn-sm" rel="content-y"  role="button"><i class="fa fa-arrow-left"></i> Back</a>

@@ -2,48 +2,49 @@
 
 namespace Youcandothis\Crud;
 
+use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
+use Youcandothis\Crud\Http\Middleware\AdminOnly;
+use Youcandothis\Crud\Src\Commands\GenerateCrud;
 
 class CrudServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap services.
-     *
-     * @return void
      */
-    public function boot()
+    public function boot(Router $router): void
     {
-        //include __DIR__.'/../web.php';
+        $router->aliasMiddleware('admin', AdminOnly::class);
+
         if ($this->app->runningInConsole()) {
             $this->commands([
-                Src\Commands\GenerateCrud::class,
+                GenerateCrud::class,
             ]);
         }
+
+        $src = dirname(__DIR__);
+
         $this->publishes([
-            __DIR__.'/../public/css' => base_path('public/css'),
-            __DIR__.'/../public/js' => base_path('public/js'),
-            __DIR__.'/../public/fonts' => base_path('public/fonts'),
-            __DIR__.'/../public/images' => base_path('public/images'),
-            __DIR__.'/../public/plupload' => base_path('public/plupload'),
-            __DIR__.'/../views' => base_path('resources/views'),
-            __DIR__.'/../controllers' => base_path('app/Http/Controllers'),
-            __DIR__.'/../models' => base_path('app'),
-            __DIR__.'/../middlewares' => base_path('app/Http/Middleware'),
-            __DIR__.'/../migrations' => base_path('database/migrations'),
-            __DIR__.'/../seeder' => base_path('database/seeds'),
-        ]);
+            $src.'/public/css' => public_path('css'),
+            $src.'/public/js' => public_path('js'),
+            $src.'/public/fonts' => public_path('fonts'),
+            $src.'/public/images' => public_path('images'),
+            $src.'/public/plupload' => public_path('plupload'),
+        ], ['crud', 'crud-assets']);
 
-        //$this->loadRoutesFrom(__DIR__.'/../web.php');
+        $this->publishes([
+            $src.'/views' => resource_path('views'),
+        ], ['crud', 'crud-views']);
+
+        $this->publishes([
+            $src.'/controllers' => app_path('Http/Controllers'),
+            $src.'/models' => app_path('Models'),
+            $src.'/web.php' => base_path('routes/crud.php'),
+        ], ['crud', 'crud-app']);
+
+        $this->publishes([
+            $src.'/migrations' => database_path('migrations'),
+            $src.'/seeder' => database_path('seeders'),
+        ], ['crud', 'crud-database']);
     }
-
-    /**
-     * Register services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //$this->commands('Crud\Src\Commands\GenerateCrud');
-    }
-
 }

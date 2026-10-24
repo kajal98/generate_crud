@@ -22,11 +22,11 @@
 				<tbody>
 					@foreach($inquiries as $inquiry)
 					<tr>
-						<td>{!! title_case($inquiry->full_name) !!}</td>
+						<td>{!! \Illuminate\Support\Str::title($inquiry->full_name) !!}</td>
 						<td>{!! $inquiry->email !!}</td>
 						<td>
-							<a href="{!!route('inquiry.show',['id'=>$inquiry->id])!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
-							<a href="{!!route('inquiry.destroy',['id'=>$inquiry->id])!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash" data-confirm="Are you sure want to delete?"></i></a>
+							<a href="{!!route('inquiry.show', $inquiry->id)!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
+							<a href="{!!route('inquiry.destroy', $inquiry->id)!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash" data-confirm="Are you sure want to delete?"></i></a>
 						</td>
 					</tr>
 					@endforeach

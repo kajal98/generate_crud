@@ -1,12 +1,12 @@
 <?php
-namespace App;
+
+namespace App\Models;
+
 use Illuminate\Database\Eloquent\Model;
-use Input;
+
 class Testimonial extends Model
 {
-    protected $table='testimonials'; 
-    protected $dates=['created_at'];
-    protected $fillable = [
-    'name','designation','text', 'status'
-    ];
+    protected $table = 'testimonials';
+
+    protected $fillable = ['name', 'designation', 'text', 'status'];
 }

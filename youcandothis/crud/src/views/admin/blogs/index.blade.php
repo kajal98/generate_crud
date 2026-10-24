@@ -38,8 +38,8 @@
 									<p>No Image</p>
 									@endif
 								</td>
-								<td>{!! title_case($blog->title) !!}</td>
-								<td>{!! $blog->blog_category ? title_case($blog->blog_category->name) : '' !!}</td>							
+								<td>{!! \Illuminate\Support\Str::title($blog->title) !!}</td>
+								<td>{!! $blog->blog_category ? \Illuminate\Support\Str::title($blog->blog_category->name) : '' !!}</td>							
 								<td>
 									<a href="{!!route('blogs.switch',['id'=>$blog->id])!!}" title="Click here to switch account status">
 										@if($blog->publish)
@@ -57,9 +57,9 @@
 									@endif
 								</td>
 								<td>
-									<a href="{!!route('blogs.show',['id'=>$blog->id])!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
-									<a href="{!!route('blogs.edit',['id'=>$blog->id])!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>
-									<a href="{!!route('blogs.destroy',['id'=>$blog->id])!!}" class="btn btn-sm btn-danger" data-confirm="Are you sure want to delete?"><i class="fa fa-trash"></i></a>
+									<a href="{!!route('blogs.show', $blog->id)!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
+									<a href="{!!route('blogs.edit', $blog->id)!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>
+									<a href="{!!route('blogs.destroy', $blog->id)!!}" class="btn btn-sm btn-danger" data-confirm="Are you sure want to delete?"><i class="fa fa-trash"></i></a>
 								</td>
 							</tr>
 							

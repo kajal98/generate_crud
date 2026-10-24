@@ -23,7 +23,7 @@
 				<tbody>
 					@foreach($feedbacks as $feedback)
 					<tr>
-						<td>{!! title_case($feedback->name) !!}</td>
+						<td>{!! \Illuminate\Support\Str::title($feedback->name) !!}</td>
 						<td>{!! $feedback->email !!}</td>
 						<td>
 							<a href="{!!route('feedbacks.switch',['id'=>$feedback->id])!!}" title="Click here to switch status of feedback">
@@ -35,8 +35,8 @@
 							</a>                   
 						</td>
 						<td>
-							<a href="{!!route('feedback.show',['id'=>$feedback->id])!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
-							<a href="{!!route('feedback.destroy',['id'=>$feedback->id])!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash" data-confirm="Are you sure want to delete?"></i></a>
+							<a href="{!!route('feedback.show', $feedback->id)!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
+							<a href="{!!route('feedback.destroy', $feedback->id)!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash" data-confirm="Are you sure want to delete?"></i></a>
 						</td>
 					</tr>
 					@endforeach

@@ -1,8 +1,9 @@
 {
-    "name": "kajalpandya/crud",
-    "description": "Run command in terminal and make ready made crud for your entity",
-    "keywords": ["laravel", "repository", "crud", "adminpanel", "eloquent", "model", "cache"],
-    "type": "crud",
+    "name": "kajalpandya/generate_laravel_crud",
+    "description": "Ready-made Laravel admin panel and CRUD scaffolding you can publish into your app",
+    "keywords": ["laravel", "crud", "admin-panel", "scaffolding", "generator"],
+    "type": "library",
+    "license": "MIT",
     "authors": [
         {
             "name": "Kajal",
@@ -10,25 +11,38 @@
             "role": "Developer"
         }
     ],
-    "minimum-stability": "stable",
     "require": {
-        "illuminate/http": "^10.0.3",
-        "illuminate/config": "^10.0.3",
-        "illuminate/support": "^10.0.3",
-        "illuminate/database": "^10.0.3",
-        "illuminate/pagination": "^10.0.3",
-        "illuminate/console": "^10.0.3",
-        "illuminate/filesystem": "^10.0.3",
-        "php": "^8.1.0",
-        "cviebrock/eloquent-sluggable": "^10.0.0",
-        "intervention/image": "^2.7.2",
-        "laravelcollective/html": "^6.4.0",
-        "spatie/laravel-newsletter": "^5.1.1"
+        "php": "^8.3",
+        "illuminate/console": "^13.0",
+        "illuminate/database": "^13.0",
+        "illuminate/http": "^13.0",
+        "illuminate/routing": "^13.0",
+        "illuminate/support": "^13.0",
+        "anahkiasen/former": "^5.2",
+        "cviebrock/eloquent-sluggable": "^13.0",
+        "intervention/image": "^4.0",
+        "laravel/ui": "^4.6.3"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^11.0"
     },
     "autoload": {
         "psr-4": {
             "Youcandothis\\Crud\\": "youcandothis/crud/src/providers",
-            "Youcandothis\\Crud\\Src\\Commands\\": "youcandothis/crud/src/commands"
+            "Youcandothis\\Crud\\Src\\Commands\\": "youcandothis/crud/src/commands",
+            "Youcandothis\\Crud\\Http\\Middleware\\": "youcandothis/crud/src/middlewares"
+        },
+        "files": [
+            "youcandothis/crud/src/helpers.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Youcandothis\\Crud\\CrudServiceProvider"
+            ]
         }
-    }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }

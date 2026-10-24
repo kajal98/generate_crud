@@ -1,83 +1,78 @@
-# Just type your entity name and generate model, views, controller
+# Laravel CRUD admin panel
 
-## create new directory in your root folder
-<strong>$ composer create-project --prefer-dist laravel/laravel blog</strong>
+A ready-made admin panel (users, blogs, blog categories, FAQs, testimonials, extra pages, feedback, inquiries and site settings) that you publish into your own Laravel app and own outright.
 
-## go to your directory
-<strong>$ cd blog</strong>
+**Requires:** PHP 8.3+ and Laravel 13.
 
-## move .env.example file to .env
-<strong>$ mv .env.example .env</strong>
+## Install
 
-## generate your app key
-<strong>$ php artisan key:generate</strong>
+Start from a fresh Laravel 13 app with your database configured in `.env`:
 
-set your database configuration in .env file
+```bash
+composer require kajalpandya/generate_laravel_crud
+```
 
-run localhost:8000 in your browser
+The service provider and the `admin` middleware are registered automatically.
 
-if all working good then put this line to your composer.json file
+## Publish the panel
 
-<strong>"kajalpandya/generate_laravel_crud": "dev-master",</strong>
+```bash
+php artisan vendor:publish --tag=crud
+```
 
-## update composer 
-<strong>$ composer update</strong>
+This copies:
 
-## Register provider and aliases
-then put this line to your config/app.php file in providers array
-<strong>Youcandothis\Crud\CrudServiceProvider::class,</strong>
-<strong>Intervention\Image\ImageServiceProvider::class,</strong>
+| Tag | What | Where |
+| --- | --- | --- |
+| `crud-app` | controllers, models, routes | `app/Http/Controllers`, `app/Models`, `routes/crud.php` |
+| `crud-views` | Blade views | `resources/views` |
+| `crud-database` | migrations, seeders | `database/migrations`, `database/seeders` |
+| `crud-assets` | CSS, JS, fonts, images | `public` |
 
-and this in aliases array
-<strong>'Image' => Intervention\Image\Facades\Image::class,</strong>
+Existing files are never overwritten. Your app already has `app/Models/User.php`, so either publish with `--force` or add the panel's extra fields (`last_name`, `role`, `active`, `phone`, `mobile`, `address`, `city`, `state`, `country`, `pincode`) to your `User` model's `$fillable`.
 
-## Remove below files
-<strong>database/migrations</strong>
-<strong>database/seeds</strong>
+## Wire up the routes
 
-## Clear the cache
-<strong>$ php artisan config:cache</strong>
+Add this line to the end of `routes/web.php`:
 
-## Auto load files
-<strong>$ composer dump-autoload</strong>
+```php
+require __DIR__.'/crud.php';
+```
 
-## Clear the cache again
-<strong>$ php artisan config:cache</strong>
+## Migrate and seed
 
-## Finaly publish the provider
-<strong>$ php artisan vendor:publish --provider="Youcandothis\Crud\CrudServiceProvider"</strong>
+The panel's migrations add columns to Laravel's default `users` table, so keep the default migrations.
 
-## copy routes from below file
-<strong>vendor/kajalpandya/youcandothis/crud/src/web.php</strong>
+```bash
+php artisan migrate
+php artisan db:seed --class=CrudSeeder
+```
 
-## Register middleware in app\Http\Kernel.php in $routeMiddleware group
-<strong>'admin' => \App\Http\Middleware\AdminOnly::class,</strong>
+Then visit `/admin/login` and sign in with `admin@gmail.com` / `admin2018`. Change this password straight away.
 
+Create a `public/tmp` folder if you use image uploads.
 
-## autoload helper file in your composer.json file under "autoload" array
-"files": [
-    "app/helpers.php"
-]
+## Optional settings
 
-##  put this in DatabaseSeeder run function
-$this->call(SiteSettingsTableSeeder::class);
-$this->call(UsersTableSeeder::class);
-$this->call(BlogCategoriesTableSeeder::class);
-$this->call(BlogsTableSeeder::class);
-$this->call(ExtrasTableSeeder::class);
-$this->call(TestimonialsTableSeeder::class);
+| `.env` key | Used for |
+| --- | --- |
+| `MSG91_AUTH_KEY`, `MSG91_SENDER` | SMS on user activation (`send_message()`) |
+| `AWS_STATUS`, `AWS_S3_BUCKET`, `AWS_S3_HOST` | Store uploads on S3 (needs `aws/aws-sdk-php-laravel`) |
 
-## then run
-<strong>$ php artisan migrate && php artisan db:seed</strong>
+## Generate views for an entity
 
-## make tmp folder in public
+```bash
+php artisan generate:crud Product --views
+```
 
-then run localhost:8000
+## Upgrading from v2 (Laravel 10)
 
-Have fun..!!!!!
-
-# clone direct repository from below url
-<strong>https://github.com/kajal98/laravel-ready-admin-panel</strong>
+* Models now live in `App\Models` (was `App\`).
+* Seeders live in `database/seeders` under `Database\Seeders`. `DatabaseSeeder` is now `CrudSeeder`.
+* The users migration now alters the default `users` table instead of replacing it. The `password_resets` migration is gone, because Laravel 13 ships `password_reset_tokens`.
+* The `admin` middleware comes from the package. Remove `App\Http\Middleware\AdminOnly` if you published it before.
+* `helpers.php` is autoloaded by the package. Remove the `app/helpers.php` entry from your `composer.json`.
+* `laravelcollective/html` and `spatie/laravel-newsletter` are no longer installed.
 
 ## Screenshots
 

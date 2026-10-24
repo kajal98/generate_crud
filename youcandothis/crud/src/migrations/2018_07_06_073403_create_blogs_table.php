@@ -4,19 +4,16 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBlogsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('blogs', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('blog_category_id');
-            $table->foreign('blog_category_id')->references('id')->on('blog_categories')->onDelete('cascade');
+            $table->id();
+            $table->foreignId('blog_category_id')->constrained()->cascadeOnDelete();
             $table->string('author')->nullable();
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
@@ -33,11 +30,9 @@ class CreateBlogsTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('blogs');
     }
-}
+};

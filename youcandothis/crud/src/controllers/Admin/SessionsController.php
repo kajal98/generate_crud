@@ -1,31 +1,20 @@
 <?php
 namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
-use Response;
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Auth;
-use Redirect;
-use Cookie;
-use App\User;
-use Validator;
-use Hash;
-use Former;
-use Input;
-use Session;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
+use Former\Facades\Former;
+use App\Models\User;
 class SessionsController extends Controller
 {
     public function getLogin()
     {
         if (!Auth::guest() )
         {
-            return Redirect::route('dashboard')->with('info', 'You are already logged in.');
-        }
-        if (Cookie::get('auth_remember'))
-        {
-            $user_id = Crypter::decrypt(Cookie::get('auth_remember'));
-            Auth::login($user_id);
-            return Redirect::route('admin-dashboard')->with('success', 'You have logged in successfully.');
+            return Redirect::route('admin-dashboard')->with('info', 'You are already logged in.');
         }
         return view('admin.sessions.login');
     }

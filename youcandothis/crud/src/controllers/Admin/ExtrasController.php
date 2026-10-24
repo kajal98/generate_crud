@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Extra;
-use Validator;
-use Former;
-use Mail;
+use Illuminate\Support\Facades\Validator;
+use Former\Facades\Former;
+use App\Models\Extra;
 
 class ExtrasController extends Controller
 {
@@ -80,7 +79,7 @@ class ExtrasController extends Controller
     }
     catch(\Exception $e)
     {
-      dd($e->message);
+      
       return redirect()->route('extra.index')->withError('Something went wrong, Please try after sometime.');
     }       
   }
@@ -92,7 +91,7 @@ class ExtrasController extends Controller
 
   }
 
-  public function getDestroy($id)
+  public function destroy($id)
   {
     try
     {

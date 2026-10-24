@@ -2,11 +2,13 @@
 namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\User;
-use Validator;
-use Former;
-use Mail;
-use Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
+use Former\Facades\Former;
+use App\Models\User;
 use Carbon\Carbon;
 
 class UsersController extends Controller
@@ -46,7 +48,7 @@ class UsersController extends Controller
       $user->role= 'user';
       $user->email=$request->get('email');
       $user->password= Hash::make($request->get('password'));
-      $user->active=$request->get('active');      
+      $user->active=$request->get('active', 0);      
       $user->address = $request->get('address');
       $user->city = $request->get('city');
       $user->state = $request->get('state');
@@ -115,10 +117,13 @@ class UsersController extends Controller
     $user->active = $user->active == "1" ? "0" : "1";
     $user->save();
     $status = $user->active ? 'approved' : 'deactivated';
-    Mail::send('emails.switch_status', ['data' => $user, 'status' => $status], function($message) use($user, $status) {
-      $message->to($user->email);
-      $message->subject('Your account has been '.$status);
-    });
+    if (view()->exists('emails.switch_status'))
+    {
+      Mail::send('emails.switch_status', ['data' => $user, 'status' => $status], function($message) use($user, $status) {
+        $message->to($user->email);
+        $message->subject('Your account has been '.$status);
+      });
+    }
     if($status == 'approved')
     {
       send_message('Welcome to eDoc24x7. Your account is active now. You can ask your medical query and our medical expert will get back to you.', $user->phone);

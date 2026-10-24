@@ -26,11 +26,11 @@
 					@foreach($extras as $extra)
 					<tr>
 						<td>{!! $extra->code !!}</td>
-						<td>{!! title_case($extra->title) !!}</td>
+						<td>{!! \Illuminate\Support\Str::title($extra->title) !!}</td>
 						<td>
-							<a href="{!!route('extra.show',['id'=>$extra->id])!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
-							<a href="{!!route('extra.edit',['id'=>$extra->id])!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>
-							<a href="{!!route('extra.destroy',['id'=>$extra->id])!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash" data-confirm="Are you sure want to delete?"></i></a>
+							<a href="{!!route('extra.show', $extra->id)!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
+							<a href="{!!route('extra.edit', $extra->id)!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>
+							<a href="{!!route('extra.destroy', $extra->id)!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash" data-confirm="Are you sure want to delete?"></i></a>
 						</td>
 					</tr>
 					@endforeach

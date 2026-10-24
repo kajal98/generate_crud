@@ -28,9 +28,9 @@
 						<td>{!! $faq->question !!}</td>
 						<td>{!! $faq->status ? "Open" : "Close" !!}</td>
 						<td>
-							<a href="{!!route('faq.show',['id'=>$faq->id])!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
-							<a href="{!!route('faq.edit',['id'=>$faq->id])!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>
-							<a href="{!!route('faq.destroy',['id'=>$faq->id])!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash" data-confirm="Are you sure want to delete?"></i></a>
+							<a href="{!!route('faq.show', $faq->id)!!}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
+							<a href="{!!route('faq.edit', $faq->id)!!}" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></a>
+							<a href="{!!route('faq.destroy', $faq->id)!!}" class="btn btn-sm btn-danger"><i class="fa fa-trash" data-confirm="Are you sure want to delete?"></i></a>
 						</td>
 					</tr>
 					@endforeach

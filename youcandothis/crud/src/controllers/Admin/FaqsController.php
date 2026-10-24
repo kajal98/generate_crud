@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Faq;
-use Validator;
-use Former;
-use Mail;
+use Illuminate\Support\Facades\Validator;
+use Former\Facades\Former;
+use App\Models\Faq;
 
 class FaqsController extends Controller
 {
@@ -41,7 +40,7 @@ class FaqsController extends Controller
       $faq=New Faq;
       $faq->question=$request->get('question');
       $faq->answer=$request->get('answer');
-      $faq->status=$request->get('status');
+      $faq->status=$request->get('status', 0);
       $faq->save();
       return redirect()->route('faq.index')->withSuccess("Insert record successfully.");
 
@@ -82,7 +81,7 @@ class FaqsController extends Controller
     }
     catch(\Exception $e)
     {
-      dd($e->message);
+      
       return redirect()->route('faq.index')->withError('Something went wrong, Please try after sometime.');
     }       
   }

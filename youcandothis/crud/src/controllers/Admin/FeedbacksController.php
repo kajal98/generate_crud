@@ -4,10 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Feedback;
-use Validator;
-use Former;
-use Mail;
+use App\Models\Feedback;
 
 class FeedbacksController extends Controller
 {
