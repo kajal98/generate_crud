@@ -1,6 +1,24 @@
-# Laravel CRUD admin panel
+# Laravel Admin Panel (publish-and-own)
 
-A ready-made admin panel (users, blogs, blog categories, FAQs, testimonials, extra pages, feedback, inquiries and site settings) that you publish into your own Laravel app and own outright.
+[![Latest Version](https://img.shields.io/packagist/v/kajalpandya/generate_laravel_crud.svg)](https://packagist.org/packages/kajalpandya/generate_laravel_crud)
+[![Total Downloads](https://img.shields.io/packagist/dt/kajalpandya/generate_laravel_crud.svg)](https://packagist.org/packages/kajalpandya/generate_laravel_crud)
+[![PHP](https://img.shields.io/packagist/dependency-v/kajalpandya/generate_laravel_crud/php.svg)](https://packagist.org/packages/kajalpandya/generate_laravel_crud)
+[![License](https://img.shields.io/packagist/l/kajalpandya/generate_laravel_crud.svg)](LICENSE)
+
+A ready-made admin panel for **Laravel 13**. One command copies the controllers, models, views, migrations and seeders into your app, so the code is yours to read and change. There's no runtime layer to work around.
+
+**You get:** admin login, users, blog with categories and slugs, FAQs, testimonials, extra pages, feedback, inquiries, site settings, and profile and password management.
+
+```bash
+composer require kajalpandya/generate_laravel_crud
+php artisan vendor:publish --tag=crud
+echo "require __DIR__.'/crud.php';" >> routes/web.php
+php artisan migrate && php artisan db:seed --class=CrudSeeder
+```
+
+Open `/admin/login` and sign in with `admin@gmail.com` / `admin2018`.
+
+![Dashboard](https://user-images.githubusercontent.com/18494848/42441533-0b282a68-8386-11e8-8a5d-e2abf16bb18b.png)
 
 **Requires:** PHP 8.3+ and Laravel 13.
 

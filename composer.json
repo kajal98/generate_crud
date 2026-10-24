@@ -1,7 +1,22 @@
 {
     "name": "kajalpandya/generate_laravel_crud",
-    "description": "Ready-made Laravel admin panel and CRUD scaffolding you can publish into your app",
-    "keywords": ["laravel", "crud", "admin-panel", "scaffolding", "generator"],
+    "description": "Laravel 13 admin panel you publish into your app and own: users, blog, FAQs, testimonials, pages, inquiries and site settings.",
+    "keywords": [
+        "laravel",
+        "laravel-13",
+        "admin",
+        "admin-panel",
+        "laravel-admin",
+        "dashboard",
+        "backend",
+        "crud",
+        "scaffolding",
+        "generator",
+        "blog",
+        "cms",
+        "starter-kit"
+    ],
+    "homepage": "https://github.com/kajal98/generate_crud",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -11,6 +26,10 @@
             "role": "Developer"
         }
     ],
+    "support": {
+        "issues": "https://github.com/kajal98/generate_crud/issues",
+        "source": "https://github.com/kajal98/generate_crud"
+    },
     "require": {
         "php": "^8.3",
         "illuminate/console": "^13.0",
